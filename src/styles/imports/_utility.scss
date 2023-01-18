@@ -1,0 +1,36 @@
+.Circle,
+.Square {
+  position: absolute;
+  background: $light-gradient;
+  z-index: -2;
+}
+
+.Circle {
+  height: 170px;
+  width: 170px;
+  border-radius: 100rem;
+  box-shadow: 0px 10px 20px #d7dfff, inset -8px -8px 12px rgba(0, 0, 0, 0.1),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.5);
+}
+
+.Square {
+  height: 120px;
+  width: 120px;
+  border-radius: 2.6rem;
+  transform: rotate(45deg);
+  box-shadow: 16px 0 16px #d7dfff, inset -12px -4px 12px rgba(0, 0, 0, 0.1),
+    inset 8px 0 16px rgba(255, 255, 255, 1);
+}
+
+.PageHeadline {
+  font-family: $work-sans;
+  font-weight: 900;
+  background: $dark-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline;
+}
