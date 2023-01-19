@@ -7,24 +7,26 @@ function SideForm({
 }) {
   return (
     <div className="FormContainer">
-      <div className="FormContainer__Options">
-        <div className="Option_Container--Unselected">
-          <div className="OptionEle">X</div>
-          <div className="SelectionBar"></div>
+      <div className="FormInner__Wrapper">
+        <div className="FormContainer__Options">
+          <div className="Option_Container--Unselected">
+            <div className="OptionEle">X</div>
+            <div className="SelectionBar"></div>
+          </div>
+          <div className="Option_Container--Selected">
+            <div className="OptionEle">O</div>
+            <div className="SelectionBar"></div>
+          </div>
         </div>
-        <div className="Option_Container--Selected">
-          <div className="OptionEle">O</div>
-          <div className="SelectionBar"></div>
-        </div>
+        <button
+          onClick={() => {
+            setFormStepOne(false);
+          }}
+          className="FormContainer__Button"
+        >
+          Next
+        </button>
       </div>
-      <button
-        onClick={() => {
-          setFormStepOne(false);
-        }}
-        className="FormContainer__Button"
-      >
-        Next
-      </button>
     </div>
   );
 }
@@ -32,13 +34,15 @@ function SideForm({
 function IdForm() {
   return (
     <div className="FormContainer">
-      <div className="FormContainer__IdForm">
-        <label className="IdForm__Ele">
-          Opponent Id
-          <input type="text" placeholder="Enter id here" />
-        </label>
+      <div className="FormInner__Wrapper">
+        <div className="FormContainer__IdForm">
+          <label className="IdForm__Ele">
+            Opponent Id
+            <input type="text" placeholder="Enter id here" />
+          </label>
+        </div>
+        <button className="FormContainer__Button">Connect</button>
       </div>
-      <button className="FormContainer__Button">Connect</button>
     </div>
   );
 }

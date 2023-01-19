@@ -1,4 +1,3 @@
-import "../styles/HomePage.scss";
 import Oval from "../svg/Oval";
 import { Circle, Square } from "../component/Polygons";
 
@@ -6,7 +5,7 @@ export default function HomePage() {
   return (
     <div className="HomePage">
       <div className="HomePageTop">
-        <h1 className="HomePageTop__Title PageHeadline">Tic Tac Toe</h1>
+        <h1 className="HomePageTop__Title GradientText">Tic Tac Toe</h1>
         <p className="HomePageTop__Para">
           Welcome to our online multiplayer Tic Tac Toe game! In this web app,
           you can play the classic game of Tic Tac Toe with friends by sharing a

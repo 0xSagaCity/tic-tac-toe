@@ -1,16 +1,17 @@
 @import "./imports/variables";
 
 .HomePage {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
   position: relative;
+
   .Circle {
     top: 25%;
     right: 30%;
   }
+
   .Square {
     top: 50%;
     right: 60%;
@@ -18,11 +19,14 @@
 }
 
 .HomePageTop {
-  margin-block-start: 8rem;
   padding-inline-start: 15%;
+
   &__Title {
+    text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     font-size: $fs-largest;
   }
+
   &__Para {
     margin-block-start: 1rem;
     max-width: 34rem;
@@ -48,6 +52,7 @@
   height: 364px;
   width: 384px;
   cursor: pointer;
+
   &__Background {
     position: absolute;
     top: 0;
@@ -55,6 +60,7 @@
     z-index: -1;
     filter: drop-shadow(28px 28px 20px #bdc3ff);
   }
+
   &__Text {
     font-family: $work-sans;
     font-size: $fs-large;

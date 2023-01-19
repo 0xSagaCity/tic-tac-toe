@@ -9,8 +9,11 @@
 .FormPageTop {
   margin-block-start: 8rem;
   padding-inline-start: 15%;
+
   &__Title {
     font-size: $fs-larger;
+    text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -26,11 +29,13 @@
   font-family: $open-sans;
   font-size: $fs-base;
   color: $base-text-color;
+
   &__Text {
     padding: 4px 16px;
     background-color: $base-accent-light;
     border-radius: 1rem;
   }
+
   &__Button {
     all: unset;
     cursor: pointer;
@@ -113,15 +118,21 @@
   }
 
   &__FormEle {
+    flex-grow: 1;
     .FormContainer {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4rem;
+      justify-content: center;
+      align-items: center;
+
+      .FormInner__Wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+      }
 
       &__Options {
         display: flex;
-        gap: 2rem;
+        gap: 4rem;
 
         .OptionEle {
           height: 8rem;
@@ -170,6 +181,7 @@
       }
 
       &__IdForm {
+        padding-block-start: 1rem;
         .IdForm__Ele input {
           padding: 12px 24px;
           border: 2px solid $base-accent-light;
@@ -187,7 +199,7 @@
         .IdForm__Ele {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 2rem;
         }
       }
 

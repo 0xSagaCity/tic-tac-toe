@@ -22,7 +22,7 @@
     inset 8px 0 16px rgba(255, 255, 255, 1);
 }
 
-.PageHeadline {
+.GradientText {
   font-family: $work-sans;
   font-weight: 900;
   background: $dark-gradient;
@@ -30,7 +30,17 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
-  text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   display: inline;
+}
+
+.BaseText {
+  font-family: $work-sans;
+  color: $base-text-color;
+  font-size: $fs-base;
+}
+
+.SmallText {
+  font-family: $work-sans;
+  color: $base-text-color;
+  font-size: $fs-small;
 }

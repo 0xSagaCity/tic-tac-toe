@@ -1,0 +1,73 @@
+@import "./imports/variables";
+
+.GamePage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 4rem;
+  padding: 6.25rem;
+
+  .InfoContainer {
+    min-height: 15.5rem;
+    min-width: 13.75rem;
+    background: white;
+    border-radius: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+
+    .SideChar {
+      font-size: $fs-larger;
+      background: $light-gradient;
+      background-clip: text;
+    }
+
+    .SideStatus {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+
+      &__Indicator {
+        height: 12px;
+        width: 12px;
+        background: green;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .GameBoard {
+    min-height: 37.5rem;
+    aspect-ratio: 1/1;
+    background: $white-gradient;
+    border-radius: 4rem;
+    box-shadow: 16px 16px 32px rgba(193, 182, 255, 0.6),
+      inset -12px -12px 24px rgba(219, 225, 255, 0.8),
+      inset 16px 16px 32px #ffffff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    padding: 2rem;
+
+    .GameCell {
+      border: 3px solid $base-background-color-shade;
+      border-radius: 2rem;
+      text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: $fs-larger;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .GameCell:hover {
+      cursor: pointer;
+    }
+  }
+}
