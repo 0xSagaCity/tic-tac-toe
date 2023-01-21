@@ -13,15 +13,33 @@ function InfoContainer() {
 function GameBoard() {
   return (
     <div className="GameBoard">
-      <div className="GameCell GradientText"></div>
-      <div className="GameCell GradientText"></div>
-      <div className="GameCell GradientText"></div>
-      <div className="GameCell GradientText"></div>
-      <div className="GameCell GradientText">X</div>
-      <div className="GameCell GradientText">O</div>
-      <div className="GameCell GradientText">X</div>
-      <div className="GameCell GradientText">O</div>
-      <div className="GameCell GradientText">X</div>
+      <div className="GameCell">
+        <span></span>
+      </div>
+      <div className="GameCell">
+        <span></span>
+      </div>
+      <div className="GameCell">
+        <span></span>
+      </div>
+      <div className="GameCell">
+        <span></span>
+      </div>
+      <div className="GameCell">
+        <span>X</span>
+      </div>
+      <div className="GameCell">
+        <span>O</span>
+      </div>
+      <div className="GameCell">
+        <span>X</span>
+      </div>
+      <div className="GameCell">
+        <span>O</span>
+      </div>
+      <div className="GameCell">
+        <span>X</span>
+      </div>
     </div>
   );
 }
@@ -29,9 +47,11 @@ function GameBoard() {
 export default function GamePage() {
   return (
     <div className="GamePage">
-      <InfoContainer />
+      <div className="InfoWrapper">
+        <InfoContainer />
+        <InfoContainer />
+      </div>
       <GameBoard />
-      <InfoContainer />
     </div>
   );
 }

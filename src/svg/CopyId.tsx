@@ -8,7 +8,7 @@ export default function CopyId() {
         y="1.321"
         fill="#E1E4FF"
         stroke="#0C1D7A"
-        stroke-width="2"
+        strokeWidth="2"
         rx="3"
       />
       <rect
@@ -18,7 +18,7 @@ export default function CopyId() {
         y="5.393"
         fill="#E1E4FF"
         stroke="#0C1D7A"
-        stroke-width="2"
+        strokeWidth="2"
         rx="3"
       />
     </svg>

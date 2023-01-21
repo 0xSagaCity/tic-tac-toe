@@ -3,11 +3,14 @@
 .FormPage {
   min-height: 100vh;
   display: flex;
+  align-items: center;
   position: relative;
 }
 
 .FormPageTop {
-  margin-block-start: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   padding-inline-start: 15%;
 
   &__Title {
@@ -30,6 +33,12 @@
   font-size: $fs-base;
   color: $base-text-color;
 
+  &Inner__Wrapper {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
   &__Text {
     padding: 4px 16px;
     background-color: $base-accent-light;
@@ -45,10 +54,9 @@
 }
 
 .FormDialog {
-  min-width: 36rem;
-  min-height: 24rem;
   background: $white-gradient;
   padding: 2rem;
+  padding-block-end: 4rem;
   border-radius: 3rem;
   margin-block-start: 5.75rem;
   box-shadow: 16px 16px 32px rgba(200, 200, 255, 0.6),
@@ -70,7 +78,7 @@
 
     .Step {
       min-width: 16rem;
-      padding-block: 12px;
+      padding: 12px;
       display: flex;
       align-items: center;
       justify-content: flex-start;

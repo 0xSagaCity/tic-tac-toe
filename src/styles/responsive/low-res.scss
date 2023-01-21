@@ -1,11 +1,71 @@
 @media (max-width: 1400px) {
-  html {
-    font-size: 12px;
+  /* Home Page */
+  .HomePageTop__Title {
+    font-size: $fs-larger;
   }
 
-  .HomePage {
-    &Top {
-      margin-block-start: 2rem;
+  .PlayButton {
+    height: 290px;
+    width: 305px;
+
+    &__Text {
+      font-size: $fs-large;
     }
+  }
+
+  /* Form Page */
+  .YourId {
+    span {
+      font-size: $fs-small;
+    }
+  }
+
+  .Step {
+    &__Text,
+    &__Number {
+      font-size: $fs-small;
+    }
+  }
+
+  .FormPageTop__Title {
+    font-size: $fs-large;
+  }
+
+  .FormDialog__FormEle .FormContainer__Button {
+    font-size: $fs-small;
+  }
+
+  .IdForm__Ele input,
+  .IdForm__Ele {
+    font-size: $fs-small !important;
+  }
+
+  /* Form Page */
+  .GamePage {
+    gap: 1rem;
+    .InfoContainer {
+      padding-inline: 3rem;
+    }
+  }
+}
+
+@media (max-width: 1020px) {
+  /* Home Page */
+  .HomePageTop {
+    align-items: center;
+    padding-inline: 2rem;
+  }
+
+  /* Form Page */
+  .FormPage {
+    justify-content: center;
+  }
+
+  .FormPageTop {
+    padding-inline: 2rem;
+  }
+
+  .FormDialog {
+    margin-block-start: 2rem;
   }
 }

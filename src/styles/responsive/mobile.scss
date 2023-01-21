@@ -1,0 +1,164 @@
+@media (max-width: 680px) {
+  /* Home Page */
+  .HomePage {
+    padding-block-start: 2rem;
+    gap: 1rem;
+  }
+
+  .HomePageTop {
+    padding-inline: 24px;
+    padding-block-end: 4rem;
+    gap: 1rem;
+
+    &__Title {
+      align-self: flex-start;
+      font-size: $fs-large;
+    }
+
+    &__Para {
+      align-self: flex-start;
+      font-size: 12px;
+    }
+  }
+
+  /* Form Page */
+  .FormPage {
+    align-items: flex-start;
+    padding-block-start: 2rem;
+  }
+
+  .FormPageTop {
+    justify-content: center;
+  }
+
+  .FormDialog {
+    flex-direction: column;
+    padding-inline: 2rem;
+    padding-block-start: 2rem;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    gap: 1rem;
+
+    &__FormEle {
+      width: 100%;
+
+      .FormContainer {
+        width: 100%;
+        display: block;
+        .FormInner__Wrapper {
+          width: 100%;
+          gap: 2rem;
+          padding-block: 24px 36px;
+          padding-inline: 36px;
+          border-radius: 3rem;
+          background: $white-gradient;
+          box-shadow: 16px 16px 32px rgba(200, 200, 255, 0.6),
+            inset -12px -12px 24px rgba(219, 225, 255, 0.8),
+            inset 16px 16px 32px #ffffff;
+        }
+      }
+    }
+
+    .FormContainer__Options {
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    &__Steps {
+      flex-direction: row;
+      justify-content: flex-start;
+
+      .Step {
+        min-width: 0;
+        padding-inline: 12px;
+        padding-block: 8px;
+
+        &__Number {
+          padding: 0;
+          width: 32px;
+          height: 32px;
+        }
+
+        &--Active {
+          .Step__Number {
+            background: $base-background-color;
+          }
+        }
+
+        &__Background {
+          background: white !important;
+          padding: 12px 8px;
+          border-radius: 2rem;
+        }
+      }
+    }
+  }
+
+  .YourId {
+    padding: 8px 16px;
+    gap: 12px;
+  }
+
+  /* Game Page */
+  .GamePage {
+    padding-block-start: 2rem;
+    justify-content: flex-start;
+    gap: 2rem;
+
+    .GameBoard {
+      max-height: 23.75rem !important;
+      .GameCell {
+        font-size: $fs-large;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  /* Home Page */
+  .HomePage {
+    padding-block: 2rem;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .HomePageTop {
+    padding-block-end: 0;
+  }
+
+  .HomePageBottom {
+    flex-grow: 0;
+  }
+
+  /* Form Page */
+  .FormPageTop {
+    padding-inline: 24px;
+    .YourId {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .FormDialog__FormEle .FormContainer__Options .OptionEle {
+      height: 6rem;
+      width: 6rem;
+      font-size: $fs-large;
+    }
+
+    .Step--Inactive {
+      padding-inline: 0;
+      gap: 0;
+      .Step__Number {
+        margin: 0;
+      }
+      .Step__Background {
+        display: none;
+      }
+    }
+
+    &__Title {
+      font-size: $fs-large;
+    }
+  }
+}
