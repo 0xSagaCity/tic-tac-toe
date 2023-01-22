@@ -47,11 +47,13 @@ function GameBoard() {
 export default function GamePage() {
   return (
     <div className="GamePage">
-      <div className="InfoWrapper">
-        <InfoContainer />
-        <InfoContainer />
+      <div className="Game__Wrapper">
+        <div className="InfoWrapper">
+          <InfoContainer />
+          <InfoContainer />
+        </div>
+        <GameBoard />
       </div>
-      <GameBoard />
     </div>
   );
 }

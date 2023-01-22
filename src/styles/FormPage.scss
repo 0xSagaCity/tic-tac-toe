@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  padding-block: 2rem;
 }
 
 .FormPageTop {
@@ -56,6 +57,7 @@
 .FormDialog {
   background: $white-gradient;
   padding: 2rem;
+  padding-inline-end: calc(2rem + 12px);
   padding-block-end: 4rem;
   border-radius: 3rem;
   margin-block-start: 5.75rem;
@@ -74,7 +76,9 @@
     color: $base-text-color;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 1rem;
+    flex-grow: 0;
 
     .Step {
       min-width: 16rem;

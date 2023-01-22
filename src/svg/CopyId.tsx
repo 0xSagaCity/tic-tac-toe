@@ -4,6 +4,7 @@ export default function CopyId() {
       <rect
         width="14"
         height="16"
+        viewBox="0 0 16 14"
         x="1"
         y="1.321"
         fill="#E1E4FF"

@@ -1,0 +1,40 @@
+@media (min-width: 2000px) {
+  /* Home Page */
+  .HomePageTop__Para {
+    font-size: $fs-base;
+    max-width: 54rem;
+  }
+
+  .PlayButton {
+    height: 464px;
+    width: 484px;
+
+    &__Text {
+      font-size: $fs-larger;
+    }
+  }
+
+  /* Game Page */
+  .GamePage {
+    .InfoContainer {
+      .SideChar {
+        font-size: $fs-largest;
+      }
+
+      .SideStatus__Move {
+        font-size: $fs-base;
+      }
+    }
+
+    .GameBoard {
+      grid-column-gap: 4rem;
+      grid-row-gap: 4rem;
+      padding-inline: 4rem;
+      border-radius: 8rem;
+      .GameCell {
+        font-size: $fs-largest;
+        border-radius: 4rem;
+      }
+    }
+  }
+}

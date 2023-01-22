@@ -2,12 +2,14 @@
 
 .HomePage {
   min-height: 100vh;
+  max-width: 2000px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 4rem;
   padding-block: 6rem 2rem;
   position: relative;
+  margin-inline: auto;
 
   .Circle {
     top: 25%;
@@ -44,6 +46,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  max-height: 42rem;
   flex-grow: 1;
 }
 

@@ -67,12 +67,12 @@
     }
 
     &__Steps {
+      width: 100%;
       flex-direction: row;
-      justify-content: flex-start;
 
       .Step {
         min-width: 0;
-        padding-inline: 12px;
+        padding-inline-end: 1rem !important;
         padding-block: 8px;
 
         &__Number {
@@ -97,20 +97,47 @@
   }
 
   .YourId {
-    padding: 8px 16px;
+    width: 100%;
+    padding: 1rem !important;
+    justify-content: space-between;
     gap: 12px;
+
+    &Inner__Wrapper {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  .YourId > span {
+    white-space: nowrap;
   }
 
   /* Game Page */
   .GamePage {
-    padding-block-start: 2rem;
-    justify-content: flex-start;
-    gap: 2rem;
+    padding: 24px;
+    .InfoContainer {
+      padding: 0;
+      background: none;
+    }
+  }
+}
 
+@media (max-width: 540px) {
+  /* Form Page */
+  .GamePage {
+    .InfoWrapper {
+      gap: 0;
+      .InfoContainer {
+        padding-inline: 12px;
+      }
+    }
     .GameBoard {
-      max-height: 23.75rem !important;
+      padding: 1.4rem;
+      grid-column-gap: 12px;
+      grid-row-gap: 12px;
+      border-radius: 3rem;
       .GameCell {
-        font-size: $fs-large;
+        border-radius: 2rem;
       }
     }
   }
@@ -160,5 +187,71 @@
     &__Title {
       font-size: $fs-large;
     }
+  }
+
+  /* Game Page */
+  .GamePage {
+    .InfoContainer .SideChar {
+      font-size: $fs-base;
+    }
+
+    .GameBoard {
+      grid-template-columns: repeat(3, max(5rem, 10vw));
+      grid-template-rows: repeat(3, max(5rem, 10vw));
+
+      .GameCell {
+        font-size: $fs-base;
+        border-radius: 1.4rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  /* Form Page */
+  .FormPage {
+    .FormPageTop {
+      padding-inline: 12px;
+
+      .FormDialog {
+        &__Steps {
+          gap: 0;
+          .Step--Active {
+            padding-inline-start: 0;
+          }
+        }
+
+        .FormInner__Wrapper {
+          padding: 24px;
+        }
+      }
+
+      .YourId {
+        padding-inline: 8px;
+        padding-block: 1rem;
+
+        &Inner__Wrapper {
+          gap: 4px;
+        }
+      }
+
+      &__Title {
+        font-size: $fs-large !important;
+      }
+    }
+  }
+  /* Game Page */
+  .GamePage {
+    .GameBoard {
+      grid-template-columns: repeat(3, max(4rem, 10vw));
+      grid-template-rows: repeat(3, max(4rem, 10vw));
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .FormPage .FormPageTop__Title {
+    font-size: 3rem !important;
+    width: 100%;
   }
 }

@@ -40,7 +40,7 @@
     font-size: $fs-small !important;
   }
 
-  /* Form Page */
+  /* Game Page */
   .GamePage {
     gap: 1rem;
     .InfoContainer {
@@ -67,5 +67,22 @@
 
   .FormDialog {
     margin-block-start: 2rem;
+  }
+
+  .GamePage {
+    .GameBoard {
+      grid-template-columns: repeat(3, max(6rem, 10vw));
+      grid-template-rows: repeat(3, max(6rem, 10vw));
+      .GameCell {
+        font-size: $fs-large;
+        border-radius: 2rem;
+      }
+    }
+
+    .InfoContainer {
+      .SideChar {
+        font-size: $fs-large;
+      }
+    }
   }
 }

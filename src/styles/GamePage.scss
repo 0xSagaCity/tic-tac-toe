@@ -2,11 +2,19 @@
 
 .GamePage {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 3rem;
+  padding: 2rem;
+  padding-block-start: 0;
+  display: grid;
+  place-items: center;
+
+  .Game__Wrapper {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 3rem;
+  }
 
   .InfoWrapper {
     width: 100%;
@@ -21,6 +29,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background: $white-gradient;
+    padding-inline: 2rem;
+    padding-block: 1rem;
+    border-radius: 2rem;
 
     .SideChar {
       font-size: $fs-larger;
@@ -44,20 +56,20 @@
   }
 
   .GameBoard {
-    height: 100%;
-    max-height: 36rem;
     aspect-ratio: 1/1;
     background: $white-gradient;
-    border-radius: 4rem;
+    border-radius: 5rem;
     box-shadow: 16px 16px 32px rgba(193, 182, 255, 0.6),
       inset -12px -12px 24px rgba(219, 225, 255, 0.8),
       inset 16px 16px 32px #ffffff;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, max(8rem, 10vw));
+    grid-template-rows: repeat(3, max(8rem, 10vw));
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
-    padding: 2rem;
+    justify-content: center;
+    align-content: center;
+    padding: 2.4rem;
 
     .GameCell {
       text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
@@ -70,7 +82,7 @@
       justify-content: center;
       align-items: center;
       border: 3px solid $base-background-color-shade;
-      border-radius: 2rem;
+      border-radius: 3rem;
       cursor: pointer;
     }
   }
