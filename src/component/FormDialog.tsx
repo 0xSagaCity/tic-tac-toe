@@ -1,19 +1,37 @@
 import { useState } from "react";
+import {
+  ConnectionStateType,
+  FormDialogType,
+  SideFormType,
+} from "../utils/types";
 
 function SideForm({
   setFormStepOne,
-}: {
-  setFormStepOne: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+  connectionState,
+  connectionDispatch,
+}: SideFormType) {
+  const OptionOneClass =
+    connectionState.mySideChar === "X"
+      ? "Option_Container--Selected"
+      : "Option_Container--Unselected";
+  const OptionTwoClass =
+    connectionState.mySideChar === "O"
+      ? "Option_Container--Selected"
+      : "Option_Container--Unselected";
+
+  function changeOption(option: string) {
+    connectionDispatch({ type: "SET_SIDE", payload: option });
+  }
+
   return (
     <div className="FormContainer">
       <div className="FormInner__Wrapper">
         <div className="FormContainer__Options">
-          <div className="Option_Container--Unselected">
+          <div onClick={() => changeOption("X")} className={OptionOneClass}>
             <div className="OptionEle">X</div>
             <div className="SelectionBar"></div>
           </div>
-          <div className="Option_Container--Selected">
+          <div onClick={() => changeOption("O")} className={OptionTwoClass}>
             <div className="OptionEle">O</div>
             <div className="SelectionBar"></div>
           </div>
@@ -31,23 +49,55 @@ function SideForm({
   );
 }
 
-function IdForm() {
+function IdForm({
+  connectionState,
+  connectionDispatch,
+}: {
+  connectionState: ConnectionStateType;
+  connectionDispatch: React.Dispatch<{ type: string; payload: any }>;
+}) {
+  const [opponentId, setOpponentId] = useState("");
+
+  function sendChallenge() {
+    const connection = connectionState.peer.connect(opponentId);
+    connectionDispatch({
+      type: "SET_CONN",
+      payload: connection,
+    });
+    setTimeout(() => {
+      connectionDispatch({
+        type: "SEND_CHAR",
+        payload: connectionState.mySideChar,
+      });
+    }, 2000);
+  }
+
   return (
     <div className="FormContainer">
       <div className="FormInner__Wrapper">
         <div className="FormContainer__IdForm">
           <label className="IdForm__Ele">
             Opponent Id
-            <input type="text" placeholder="Enter id here" />
+            <input
+              type="text"
+              value={opponentId}
+              onChange={(e) => setOpponentId(e.target.value)}
+              placeholder="Enter id here"
+            />
           </label>
         </div>
-        <button className="FormContainer__Button">Connect</button>
+        <button onClick={sendChallenge} className="FormContainer__Button">
+          Connect
+        </button>
       </div>
     </div>
   );
 }
 
-export default function FormDialog() {
+export default function FormDialog({
+  connectionState,
+  connectionDispatch,
+}: FormDialogType) {
   const [formStepOne, setFormStepOne] = useState(true);
   const StepOneClass = formStepOne
     ? "Step Step--Active"
@@ -72,9 +122,16 @@ export default function FormDialog() {
       </ul>
       <div className="FormDialog__FormEle">
         {formStepOne ? (
-          <SideForm setFormStepOne={setFormStepOne} />
+          <SideForm
+            setFormStepOne={setFormStepOne}
+            connectionState={connectionState}
+            connectionDispatch={connectionDispatch}
+          />
         ) : (
-          <IdForm />
+          <IdForm
+            connectionState={connectionState}
+            connectionDispatch={connectionDispatch}
+          />
         )}
       </div>
     </div>

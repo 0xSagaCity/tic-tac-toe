@@ -1,3 +1,6 @@
+import Peer from "peerjs";
+import { ConnectionStateType } from "./types";
+
 export const WINNING_STATES = [
   //Rows
   [0, 1, 2],
@@ -11,3 +14,11 @@ export const WINNING_STATES = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
+export const initialConnection: ConnectionStateType = {
+  isConnectionOn: false,
+  connection: undefined,
+  peer: new Peer(),
+  myId: "",
+  mySideChar: "O",
+};
