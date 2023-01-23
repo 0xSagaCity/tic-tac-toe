@@ -43,8 +43,20 @@
   /* Game Page */
   .GamePage {
     gap: 1rem;
+    .GameBoard {
+      grid-template-columns: repeat(3, max(6rem, 8vw));
+      grid-template-rows: repeat(3, max(6rem, 8vw));
+      .GameCell {
+        font-size: $fs-large;
+        border-radius: 2rem;
+      }
+    }
     .InfoContainer {
-      padding-inline: 3rem;
+      padding-inline: 1rem;
+      padding-block-start: 0;
+      .SideChar {
+        font-size: $fs-large;
+      }
     }
   }
 }
@@ -71,17 +83,11 @@
 
   .GamePage {
     .GameBoard {
-      grid-template-columns: repeat(3, max(6rem, 10vw));
-      grid-template-rows: repeat(3, max(6rem, 10vw));
+      grid-template-columns: repeat(3, max(6rem, 8vw));
+      grid-template-rows: repeat(3, max(6rem, 8vw));
       .GameCell {
         font-size: $fs-large;
         border-radius: 2rem;
-      }
-    }
-
-    .InfoContainer {
-      .SideChar {
-        font-size: $fs-large;
       }
     }
   }

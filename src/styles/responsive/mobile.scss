@@ -115,9 +115,9 @@
   /* Game Page */
   .GamePage {
     padding: 24px;
+
     .InfoContainer {
       padding: 0;
-      background: none;
     }
   }
 }
@@ -125,6 +125,7 @@
 @media (max-width: 540px) {
   /* Form Page */
   .GamePage {
+    padding: 0;
     .InfoWrapper {
       gap: 0;
       .InfoContainer {
@@ -196,8 +197,8 @@
     }
 
     .GameBoard {
-      grid-template-columns: repeat(3, max(5rem, 10vw));
-      grid-template-rows: repeat(3, max(5rem, 10vw));
+      grid-template-columns: repeat(3, max(5rem, 8vw));
+      grid-template-rows: repeat(3, max(5rem, 8vw));
 
       .GameCell {
         font-size: $fs-base;
@@ -243,8 +244,8 @@
   /* Game Page */
   .GamePage {
     .GameBoard {
-      grid-template-columns: repeat(3, max(4rem, 10vw));
-      grid-template-rows: repeat(3, max(4rem, 10vw));
+      grid-template-columns: repeat(3, max(4rem, 8vw));
+      grid-template-rows: repeat(3, max(4rem, 8vw));
     }
   }
 }
