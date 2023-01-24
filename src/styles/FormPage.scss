@@ -21,18 +21,109 @@
   }
 }
 
+/* Challenge Options */
+.ChallengeOptions__Background {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: $dark-gradient;
+
+  .ChallengeButton {
+    font-family: $work-sans;
+    font-size: $fs-base;
+    font-weight: 800;
+    border: none;
+    background: $light-gradient;
+    color: $base-text-color;
+    height: 300px;
+    width: 300px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    box-shadow: 16px 24px 32px #0015ab,
+      inset -16px -16px 32px rgba(0, 21, 171, 0.6), inset 16px 16px 32px #ffffff;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+/* ReceivePage */
+.ReceiveChallengeContainer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $dark-gradient;
+  overflow: hidden;
+
+  .ReceiveSphere__Layer {
+    &One {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 450px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background: $light-gradient;
+      opacity: 20%;
+      transform: translate(-50%, -50%);
+    }
+    &Two {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background: $light-gradient;
+      z-index: 1;
+      opacity: 30%;
+      transform: translate(-50%, -50%);
+    }
+    &Final {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background: $light-gradient;
+      z-index: 2;
+      opacity: 100%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      font-family: $work-sans;
+      font-size: $fs-base;
+      font-weight: 800;
+      color: $base-text-color;
+    }
+  }
+}
+
+/* FormPage */
 .YourId {
   width: max-content;
-  margin-block-start: 20px;
   padding: 12px 32px;
-  border: 2px solid $base-accent-light;
   display: flex;
   gap: 24px;
   align-items: center;
-  border-radius: 1.4rem;
+  border-radius: 1.8rem;
   font-family: $open-sans;
   font-size: $fs-base;
+  background: $white-gradient;
   color: $base-text-color;
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  box-shadow: 8px 8px 24px #0015ab, inset -8px -8px 16px rgba(0, 21, 171, 0.4),
+    inset 8px 8px 16px #ffffff;
+  transform: translateX(-50%);
 
   &Inner__Wrapper {
     display: flex;
@@ -49,12 +140,13 @@
   &__Button {
     all: unset;
     cursor: pointer;
-    height: 1.5rem;
-    width: 1.37rem;
+    display: grid;
+    place-items: center;
   }
 }
 
 .FormDialog {
+  min-height: 24rem;
   background: $white-gradient;
   padding: 2rem;
   padding-inline-end: calc(2rem + 12px);
@@ -144,7 +236,7 @@
 
       &__Options {
         display: flex;
-        gap: 4rem;
+        gap: 2rem;
 
         .OptionEle {
           height: 8rem;
@@ -195,6 +287,7 @@
       &__IdForm {
         padding-block-start: 1rem;
         .IdForm__Ele input {
+          min-width: 320px;
           padding: 12px 24px;
           border: 2px solid $base-accent-light;
           border-radius: 1rem;

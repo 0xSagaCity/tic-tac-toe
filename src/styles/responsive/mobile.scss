@@ -1,4 +1,4 @@
-@media (max-width: 680px) {
+@media (max-width: 730px) {
   /* Home Page */
   .HomePage {
     padding-block-start: 2rem;
@@ -47,6 +47,7 @@
       .FormContainer {
         width: 100%;
         display: block;
+
         .FormInner__Wrapper {
           width: 100%;
           gap: 2rem;
@@ -67,7 +68,7 @@
     }
 
     &__Steps {
-      width: 100%;
+      width: calc(100% - 1rem);
       flex-direction: row;
 
       .Step {

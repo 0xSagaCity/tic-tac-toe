@@ -3,10 +3,10 @@ export default function CopyId() {
     <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="none">
       <rect
         width="14"
-        height="16"
-        viewBox="0 0 16 14"
+        height="18"
+        viewBox="0 0 14 14"
         x="1"
-        y="1.321"
+        y="1"
         fill="#E1E4FF"
         stroke="#0C1D7A"
         strokeWidth="2"

@@ -69,7 +69,7 @@ function IdForm({
         type: "SEND_CHAR",
         payload: connectionState.mySideChar,
       });
-    }, 2000);
+    }, 3000);
   }
 
   return (

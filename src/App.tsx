@@ -26,10 +26,20 @@ function App(): JSX.Element {
     if (connectionState.connection) {
       connectionDispatch({ type: "SET_STATUS", payload: true });
     }
-    //Receive moves from opponent here.
+    //Receive data from opponent here.
     connectionState.connection !== undefined &&
-      connectionState.connection.on("data", (move) => {
-        console.log(move);
+      connectionState.connection.on("data", (data: any) => {
+        if (data.HEAD) {
+          if (data.HEAD === "SIDE") {
+            if (data.PAYLOAD === "X") {
+              connectionDispatch({ type: "SET_SIDE", payload: "O" });
+            } else {
+              connectionDispatch({ type: "SET_SIDE", payload: "X" });
+            }
+          }
+        } else {
+          console.log("BAD DATA was sent!");
+        }
       });
   }, [connectionState.connection]);
 
