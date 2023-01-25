@@ -31,5 +31,5 @@ export const initialGame: GameStateType = {
   gameStatusOn: false,
   myGameState: [],
   opponentGameState: [],
-  currentGameState: [],
+  currentGameState: Array(9).fill(null),
 };

@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import connectionReducer from "./reducers/connectionReducer";
 import gameReducer from "./reducers/gameReducer";
 import "./styles/App.scss";
-import { initialConnection, initialGame } from "./utils/data";
+import { initialConnection, initialGame, WINNING_STATES } from "./utils/data";
 
 function App(): JSX.Element {
   const [connectionState, connectionDispatch] = useReducer(
@@ -30,6 +30,9 @@ function App(): JSX.Element {
       connectionState.mySideChar === "X"
         ? gameDispatch({ type: "SET_ASX", payload: true })
         : gameDispatch({ type: "SET_ASX", payload: false });
+      connectionState.mySideChar === "X"
+        ? gameDispatch({ type: "SET_TURN", payload: true })
+        : gameDispatch({ type: "SET_TURN", payload: false });
     }
   }, [connectionState.mySideChar]);
 
@@ -47,12 +50,44 @@ function App(): JSX.Element {
             } else {
               connectionDispatch({ type: "SET_SIDE", payload: "X" });
             }
+          } else if (data.HEAD === "MOVE") {
+            gameDispatch({ type: "ADD_OP_MOVE", payload: data.PAYLOAD });
+            gameDispatch({ type: "GAME_ADD_OP", payload: data.PAYLOAD });
+            gameDispatch({ type: "SET_TURN", payload: true });
           }
         } else {
           console.log("BAD DATA was sent!");
         }
       });
   }, [connectionState.connection]);
+
+  useEffect(() => {
+    WINNING_STATES.forEach((winningState) => {
+      const iWinGame = winningState.every((state) =>
+        gameState.myGameState.includes(state)
+      );
+      const iLooseGame = winningState.every((state) =>
+        gameState.opponentGameState.includes(state)
+      );
+      if (iLooseGame) {
+        gameDispatch({ type: "SET_RESULT", payload: "LOSS" });
+      }
+      if (iWinGame) {
+        gameDispatch({ type: "SET_RESULT", payload: "WIN" });
+      }
+      if (
+        gameState.currentGameState.every((move) => typeof move === "string") &&
+        !iWinGame &&
+        !iLooseGame
+      ) {
+        gameDispatch({ type: "SET_RESULT", payload: "DRAW" });
+      }
+    });
+  }, [
+    gameState.myGameState,
+    gameState.opponentGameState,
+    gameState.currentGameState,
+  ]);
 
   return (
     <div className="App">
@@ -69,7 +104,16 @@ function App(): JSX.Element {
             />
           }
         />
-        <Route path="/game" element={<GamePage />} />
+        <Route
+          path="/game"
+          element={
+            <GamePage
+              gameState={gameState}
+              gameDispatch={gameDispatch}
+              connectionState={connectionState}
+            />
+          }
+        />
       </Routes>
     </div>
   );

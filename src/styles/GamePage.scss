@@ -86,4 +86,22 @@
       cursor: pointer;
     }
   }
+
+  /* Game Results */
+  .GameResult {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    display: grid;
+    place-items: center;
+    font-family: $work-sans;
+    font-size: $fs-large;
+    font-weight: 800;
+    color: $base-text-color;
+    overflow: none;
+  }
 }

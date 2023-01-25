@@ -1,3 +1,7 @@
+import { MouseEventHandler, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { ConnectionStateType, GameStateType } from "../utils/types";
+
 function InfoContainer() {
   return (
     <div className="InfoContainer">
@@ -10,41 +14,82 @@ function InfoContainer() {
   );
 }
 
-function GameBoard() {
+function GameCell({
+  value,
+  onClick,
+}: {
+  value: string;
+  onClick: MouseEventHandler;
+}): JSX.Element {
   return (
-    <div className="GameBoard">
-      <div className="GameCell">
-        <span></span>
-      </div>
-      <div className="GameCell">
-        <span></span>
-      </div>
-      <div className="GameCell">
-        <span></span>
-      </div>
-      <div className="GameCell">
-        <span></span>
-      </div>
-      <div className="GameCell">
-        <span>X</span>
-      </div>
-      <div className="GameCell">
-        <span>O</span>
-      </div>
-      <div className="GameCell">
-        <span>X</span>
-      </div>
-      <div className="GameCell">
-        <span>O</span>
-      </div>
-      <div className="GameCell">
-        <span>X</span>
-      </div>
+    <div className="GameCell" onClick={onClick}>
+      <span>{value}</span>
     </div>
   );
 }
 
-export default function GamePage() {
+function GameBoard({
+  gameState,
+  gameDispatch,
+  connectionState,
+}: {
+  gameState: GameStateType;
+  gameDispatch: React.Dispatch<{ type: string; payload: any }>;
+  connectionState: ConnectionStateType;
+}): JSX.Element {
+  return (
+    <div className="GameBoard">
+      {gameState.currentGameState.map((val, key) => {
+        const onClick = () => {
+          if (
+            gameState.isMyTurn &&
+            gameState.currentGameState[key] === null &&
+            gameState.gameResult === null
+          ) {
+            //If your turn update state with gameValue
+            gameDispatch({ type: "ADD_MY_MOVE", payload: key });
+            gameDispatch({ type: "GAME_ADD_MY", payload: key });
+            gameDispatch({ type: "SET_TURN", payload: false });
+            //Check if connection is on and then send move if it is.
+            if (connectionState.connection) {
+              connectionState.connection.send({ HEAD: "MOVE", PAYLOAD: key });
+            }
+          }
+        };
+        return (
+          <GameCell key={`GameCell-${key}`} onClick={onClick} value={val} />
+        );
+      })}
+    </div>
+  );
+}
+
+function GameResult({ result }: { result: "DRAW" | "WIN" | "LOSS" }) {
+  return (
+    <div className="GameResult">
+      {result === "DRAW" && "GAME DRAWN"}
+      {result === "WIN" && "GAME WIN"}
+      {result === "LOSS" && "GAME LOSS"}
+    </div>
+  );
+}
+
+export default function GamePage({
+  gameState,
+  gameDispatch,
+  connectionState,
+}: {
+  gameState: GameStateType;
+  gameDispatch: React.Dispatch<{ type: string; payload: any }>;
+  connectionState: ConnectionStateType;
+}) {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!gameState.gameStatusOn && gameState.gameResult === null) {
+      navigate("/");
+    }
+  }, [gameState.gameStatusOn, gameState.gameResult]);
+
   return (
     <div className="GamePage">
       <div className="Game__Wrapper">
@@ -52,8 +97,15 @@ export default function GamePage() {
           <InfoContainer />
           <InfoContainer />
         </div>
-        <GameBoard />
+        <GameBoard
+          gameState={gameState}
+          gameDispatch={gameDispatch}
+          connectionState={connectionState}
+        />
       </div>
+      {gameState.gameStatusOn && gameState.gameResult !== null && (
+        <GameResult result={gameState.gameResult} />
+      )}
     </div>
   );
 }
