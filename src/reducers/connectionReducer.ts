@@ -6,6 +6,9 @@ export default function connectionReducer(
 ): ConnectionStateType {
   let newState = state;
   switch (action.type) {
+    case "SET_PEER":
+      newState = { ...state, peer: action.payload };
+      break;
     case "SET_CONN":
       newState = { ...state, connection: action.payload };
       break;

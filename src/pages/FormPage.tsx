@@ -27,15 +27,17 @@ function SendChallenge({
 
 function ReceiveChallenge({
   connectionState,
-}: {
-  connectionState: ConnectionStateType;
-}) {
+  connectionDispatch,
+}: FormDialogType) {
   return (
     <div className="ReceiveChallengeContainer">
       <div className="ReceiveSphere__LayerOne"></div>
       <div className="ReceiveSphere__LayerTwo"></div>
       <div className="ReceiveSphere__LayerFinal">WAITING</div>
-      <YourIdComponent connectionState={connectionState} />
+      <YourIdComponent
+        connectionState={connectionState}
+        connectionDispatch={connectionDispatch}
+      />
     </div>
   );
 }
@@ -77,7 +79,7 @@ export default function FormPage({
 
   useEffect(() => {
     //Get your id
-    connectionState.peer.on("open", function (id: string) {
+    connectionState.peer?.on("open", function (id: string) {
       connectionDispatch({ type: "SET_MID", payload: id });
     });
   }, [connectionState.peer, connectionDispatch]);
@@ -111,7 +113,10 @@ export default function FormPage({
           />
         )}
         {challengeOptions === "RECEIVE" && (
-          <ReceiveChallenge connectionState={connectionState} />
+          <ReceiveChallenge
+            connectionState={connectionState}
+            connectionDispatch={connectionDispatch}
+          />
         )}
       </div>
     </div>

@@ -3,7 +3,7 @@ import { DataConnection, Peer } from "peerjs";
 export interface ConnectionStateType {
   isConnectionOn: boolean;
   connection: DataConnection | undefined;
-  peer: Peer;
+  peer: Peer | null;
   myId: string;
   mySideChar: "X" | "O" | null;
 }

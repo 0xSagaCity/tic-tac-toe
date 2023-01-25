@@ -1,11 +1,16 @@
 import CopyId from "../svg/CopyId";
-import { ConnectionStateType } from "../utils/types";
+import { FormDialogType } from "../utils/types";
+import Peer from "peerjs";
+import { useEffect } from "react";
 
 export default function YourIdComponent({
   connectionState,
-}: {
-  connectionState: ConnectionStateType;
-}): JSX.Element {
+  connectionDispatch,
+}: FormDialogType): JSX.Element {
+  useEffect(() => {
+    //Why don't know but many times the initial id is not generated properly.
+    connectionDispatch({ type: "SET_PEER", payload: new Peer() });
+  }, []);
   return (
     <div className="YourId">
       <span>Your Id</span>
@@ -20,6 +25,13 @@ export default function YourIdComponent({
           className="YourId__Button"
         >
           <CopyId />
+        </button>
+        <button
+          onClick={() =>
+            connectionDispatch({ type: "SET_PEER", payload: new Peer() })
+          }
+        >
+          Regenerate
         </button>
       </div>
     </div>

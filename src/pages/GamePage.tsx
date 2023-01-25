@@ -2,13 +2,39 @@ import { MouseEventHandler, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ConnectionStateType, GameStateType } from "../utils/types";
 
-function InfoContainer() {
+function InfoContainer({
+  gameState,
+  isOpponent,
+}: {
+  gameState: GameStateType;
+  isOpponent: boolean;
+}) {
+  const indicatorClass = isOpponent
+    ? gameState.isMyTurn
+      ? "SideStatus__Indicator Indicator__Red"
+      : "SideStatus__Indicator Indicator__Green"
+    : gameState.isMyTurn
+    ? "SideStatus__Indicator Indicator__Green"
+    : "SideStatus__Indicator Indicator__Red";
+
   return (
     <div className="InfoContainer">
-      <span className="SideChar GradientText">X</span>
+      <span className="SideChar GradientText">
+        {isOpponent ? (
+          <> {gameState.isX ? "O" : "X"} </>
+        ) : (
+          <> {gameState.isX ? "X" : "O"} </>
+        )}
+      </span>
       <div className="SideStatus">
-        <div className="SideStatus__Indicator"></div>
-        <span className="SideStatus__Move SmallText">Waiting...</span>
+        <div className={indicatorClass}></div>
+        <span className="SideStatus__Move SmallText">
+          {isOpponent ? (
+            <> {gameState.isMyTurn ? "Waiting..." : "Moving..."} </>
+          ) : (
+            <> {gameState.isMyTurn ? "Moving..." : "Waiting..."} </>
+          )}
+        </span>
       </div>
     </div>
   );
@@ -94,8 +120,8 @@ export default function GamePage({
     <div className="GamePage">
       <div className="Game__Wrapper">
         <div className="InfoWrapper">
-          <InfoContainer />
-          <InfoContainer />
+          <InfoContainer isOpponent={false} gameState={gameState} />
+          <InfoContainer isOpponent={true} gameState={gameState} />
         </div>
         <GameBoard
           gameState={gameState}

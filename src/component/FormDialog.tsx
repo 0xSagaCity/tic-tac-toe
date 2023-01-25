@@ -63,7 +63,7 @@ function IdForm({
   const [opponentId, setOpponentId] = useState("");
 
   function sendChallenge() {
-    const connection = connectionState.peer.connect(opponentId);
+    const connection = connectionState.peer?.connect(opponentId);
     connectionDispatch({
       type: "SET_CONN",
       payload: connection,

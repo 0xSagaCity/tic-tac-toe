@@ -31,6 +31,8 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
   background: $dark-gradient;
 
   .ChallengeButton {
@@ -44,7 +46,8 @@
     width: 300px;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    box-shadow: 16px 24px 32px #0015ab,
+    letter-spacing: 2px;
+    box-shadow: 16px 24px 32px rgba(0, 0, 0, 0.2),
       inset -16px -16px 32px rgba(0, 21, 171, 0.6), inset 16px 16px 32px #ffffff;
     outline: none;
     cursor: pointer;
@@ -70,9 +73,13 @@
       aspect-ratio: 1/1;
       border-radius: 50%;
       background: white;
-      opacity: 10%;
+      opacity: 20%;
       transform: translate(-50%, -50%);
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+        inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+        inset 16px 16px 32px #ffffff;
     }
+
     &Two {
       position: absolute;
       top: 50%;
@@ -82,9 +89,13 @@
       border-radius: 50%;
       background: white;
       z-index: 1;
-      opacity: 20%;
+      opacity: 30%;
       transform: translate(-50%, -50%);
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+        inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+        inset 16px 16px 32px #ffffff;
     }
+
     &Final {
       position: absolute;
       top: 50%;
@@ -102,6 +113,9 @@
       font-size: $fs-base;
       font-weight: 800;
       color: $base-text-color;
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+        inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+        inset 16px 16px 32px #ffffff;
     }
   }
 }
@@ -120,12 +134,14 @@
   border-radius: 1.4rem;
   font-family: $open-sans;
   font-size: $fs-small;
-  background: $white-gradient;
+  background: rgba(230, 230, 255, 1);
   color: $base-text-color;
   position: absolute;
   left: 50%;
   bottom: 2rem;
   transform: translateX(-50%);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 12px rgba(0, 21, 171, 0.4), inset 4px 4px 12px #ffffff;
 
   &Inner__Wrapper {
     display: flex;
@@ -145,10 +161,6 @@
     display: grid;
     place-items: center;
   }
-}
-
-.YourId:hover {
-  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.1);
 }
 
 .FormDialog {
