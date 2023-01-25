@@ -1,11 +1,19 @@
 import YourIdComponent from "../component/YourIdComponent";
 import FormDialog from "../component/FormDialog";
-import { ConnectionStateType, FormPageType } from "../utils/types";
+import {
+  ConnectionStateType,
+  FormDialogType,
+  FormPageType,
+} from "../utils/types";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type challengeOptionType = "NONE" | "RECEIVE" | "SEND";
 
-function SendChallenge({ connectionState, connectionDispatch }: FormPageType) {
+function SendChallenge({
+  connectionState,
+  connectionDispatch,
+}: FormDialogType) {
   return (
     <>
       <h2 className="FormPageTop__Title GradientText">Send challenge</h2>
@@ -60,9 +68,12 @@ function ChallengeOptions({
 export default function FormPage({
   connectionState,
   connectionDispatch,
+  gameState,
+  gameDispatch,
 }: FormPageType): JSX.Element {
   const [challengeOptions, setChallengeOptions] =
     useState<challengeOptionType>("NONE");
+  const navigate = useNavigate();
 
   useEffect(() => {
     //Get your id
@@ -70,6 +81,22 @@ export default function FormPage({
       connectionDispatch({ type: "SET_MID", payload: id });
     });
   }, [connectionState.peer, connectionDispatch]);
+
+  useEffect(() => {
+    if (gameState.gameStatusOn) {
+      navigate("/game");
+    }
+  }, [gameState.gameStatusOn]);
+
+  useEffect(() => {
+    if (
+      connectionState.connection &&
+      connectionState.isConnectionOn &&
+      connectionState.mySideChar !== null
+    ) {
+      gameDispatch({ type: "GAME_ON", payload: true });
+    }
+  }, [connectionState]);
 
   return (
     <div className="FormPage">

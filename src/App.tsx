@@ -4,14 +4,17 @@ import FormPage from "./pages/FormPage";
 import GamePage from "./pages/GamePage";
 import HomePage from "./pages/HomePage";
 import connectionReducer from "./reducers/connectionReducer";
+import gameReducer from "./reducers/gameReducer";
 import "./styles/App.scss";
-import { initialConnection } from "./utils/data";
+import { initialConnection, initialGame } from "./utils/data";
 
 function App(): JSX.Element {
   const [connectionState, connectionDispatch] = useReducer(
     connectionReducer,
     initialConnection
   );
+
+  const [gameState, gameDispatch] = useReducer(gameReducer, initialGame);
 
   useEffect(() => {
     //Receive for connection
@@ -21,6 +24,14 @@ function App(): JSX.Element {
       });
     }
   }, [connectionState.peer]);
+
+  useEffect(() => {
+    if (connectionState.mySideChar !== null) {
+      connectionState.mySideChar === "X"
+        ? gameDispatch({ type: "SET_ASX", payload: true })
+        : gameDispatch({ type: "SET_ASX", payload: false });
+    }
+  }, [connectionState.mySideChar]);
 
   useEffect(() => {
     if (connectionState.connection) {
@@ -53,6 +64,8 @@ function App(): JSX.Element {
             <FormPage
               connectionState={connectionState}
               connectionDispatch={connectionDispatch}
+              gameState={gameState}
+              gameDispatch={gameDispatch}
             />
           }
         />

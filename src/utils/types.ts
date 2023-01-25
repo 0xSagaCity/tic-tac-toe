@@ -5,14 +5,15 @@ export interface ConnectionStateType {
   connection: DataConnection | undefined;
   peer: Peer;
   myId: string;
-  mySideChar: string;
+  mySideChar: "X" | "O" | null;
 }
 
 export interface GameStateType {
-  isMyTurn: boolean;
   isX: boolean;
+  isMyTurn: boolean;
   gameResult: null | "DRAW" | "WIN" | "LOSS";
   moveStatus: "Waiting..." | "Moving...";
+  gameStatusOn: boolean;
   myGameState: number[];
   opponentGameState: number[];
   currentGameState: string[];
@@ -21,6 +22,8 @@ export interface GameStateType {
 export interface FormPageType {
   connectionState: ConnectionStateType;
   connectionDispatch: React.Dispatch<{ type: string; payload: any }>;
+  gameState: GameStateType;
+  gameDispatch: React.Dispatch<{ type: string; payload: any }>;
 }
 
 export interface FormDialogType {

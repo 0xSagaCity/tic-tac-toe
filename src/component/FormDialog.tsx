@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ConnectionStateType,
   FormDialogType,
@@ -22,6 +22,10 @@ function SideForm({
   function changeOption(option: string) {
     connectionDispatch({ type: "SET_SIDE", payload: option });
   }
+
+  useEffect(() => {
+    connectionDispatch({ type: "SET_SIDE", payload: "O" });
+  }, []);
 
   return (
     <div className="FormContainer">

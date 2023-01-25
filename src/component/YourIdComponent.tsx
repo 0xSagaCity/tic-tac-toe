@@ -15,7 +15,10 @@ export default function YourIdComponent({
             ? "Generating id..."
             : connectionState.myId}
         </span>
-        <button className="YourId__Button">
+        <button
+          onClick={() => navigator.clipboard.writeText(connectionState.myId)}
+          className="YourId__Button"
+        >
           <CopyId />
         </button>
       </div>

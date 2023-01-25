@@ -69,8 +69,8 @@
       width: 450px;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      background: $light-gradient;
-      opacity: 20%;
+      background: white;
+      opacity: 10%;
       transform: translate(-50%, -50%);
     }
     &Two {
@@ -80,9 +80,9 @@
       width: 400px;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      background: $light-gradient;
+      background: white;
       z-index: 1;
-      opacity: 30%;
+      opacity: 20%;
       transform: translate(-50%, -50%);
     }
     &Final {
@@ -92,7 +92,7 @@
       width: 300px;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      background: $light-gradient;
+      background: white;
       z-index: 2;
       opacity: 100%;
       transform: translate(-50%, -50%);
@@ -107,22 +107,24 @@
 }
 
 /* FormPage */
+.YourId > span {
+  font-weight: 800;
+}
+
 .YourId {
   width: max-content;
   padding: 12px 32px;
   display: flex;
   gap: 24px;
   align-items: center;
-  border-radius: 1.8rem;
+  border-radius: 1.4rem;
   font-family: $open-sans;
-  font-size: $fs-base;
+  font-size: $fs-small;
   background: $white-gradient;
   color: $base-text-color;
   position: absolute;
   left: 50%;
   bottom: 2rem;
-  box-shadow: 8px 8px 24px #0015ab, inset -8px -8px 16px rgba(0, 21, 171, 0.4),
-    inset 8px 8px 16px #ffffff;
   transform: translateX(-50%);
 
   &Inner__Wrapper {
@@ -143,6 +145,10 @@
     display: grid;
     place-items: center;
   }
+}
+
+.YourId:hover {
+  box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.1);
 }
 
 .FormDialog {

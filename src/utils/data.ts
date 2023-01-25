@@ -1,5 +1,5 @@
 import Peer from "peerjs";
-import { ConnectionStateType } from "./types";
+import { ConnectionStateType, GameStateType } from "./types";
 
 export const WINNING_STATES = [
   //Rows
@@ -20,5 +20,16 @@ export const initialConnection: ConnectionStateType = {
   connection: undefined,
   peer: new Peer(),
   myId: "",
-  mySideChar: "O",
+  mySideChar: null,
+};
+
+export const initialGame: GameStateType = {
+  isX: false,
+  isMyTurn: false,
+  gameResult: null,
+  moveStatus: "Waiting...",
+  gameStatusOn: false,
+  myGameState: [],
+  opponentGameState: [],
+  currentGameState: [],
 };
