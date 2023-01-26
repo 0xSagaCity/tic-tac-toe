@@ -1,12 +1,9 @@
-import YourIdComponent from "../component/YourIdComponent";
-import FormDialog from "../component/FormDialog";
-import {
-  ConnectionStateType,
-  FormDialogType,
-  FormPageType,
-} from "../utils/types";
-import { useEffect, useState } from "react";
+import gsap from "gsap";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FormDialog from "../component/FormDialog";
+import YourIdComponent from "../component/YourIdComponent";
+import { FormDialogType, FormPageType } from "../utils/types";
 
 type challengeOptionType = "NONE" | "RECEIVE" | "SEND";
 
@@ -50,7 +47,8 @@ function ChallengeOptions({
   >;
 }) {
   return (
-    <div className="ChallengeOptions__Background">
+    <div className="ChallengeOptions__Container">
+      <div className="ChallengeOptions__Background"></div>
       <button
         onClick={() => setChallengeOptions("SEND")}
         className="ChallengeButton"
@@ -76,6 +74,8 @@ export default function FormPage({
   const [challengeOptions, setChallengeOptions] =
     useState<challengeOptionType>("NONE");
   const navigate = useNavigate();
+  const ctx = gsap.context(() => {});
+  const formRoot = useRef(null);
 
   useEffect(() => {
     //Get your id
@@ -88,7 +88,7 @@ export default function FormPage({
     if (gameState.gameStatusOn) {
       navigate("/game");
     }
-  }, [gameState.gameStatusOn]);
+  }, [gameState.gameStatusOn, navigate]);
 
   useEffect(() => {
     if (
@@ -98,10 +98,31 @@ export default function FormPage({
     ) {
       gameDispatch({ type: "GAME_ON", payload: true });
     }
-  }, [connectionState]);
+  }, [connectionState, gameDispatch]);
+
+  useLayoutEffect(() => {
+    gsap.to(".App", { visibility: "visible" });
+    ctx.add(() => {
+      gsap.from(".ChallengeOptions__Background", {
+        scale: 0,
+        top: "80%",
+        bottom: 0,
+        duration: 1.6,
+        ease: "slow (0.4, 0.4, false)",
+      });
+      gsap.from(".ChallengeButton", {
+        opacity: 0,
+        yPercent: 20,
+        delay: 0.6,
+        stagger: 0.4,
+        ease: "slow (0.4, 0.4, false)",
+      });
+    }, formRoot);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="FormPage">
+    <div ref={formRoot} className="FormPage">
       <div className="FormPageTop">
         {challengeOptions === "NONE" && (
           <ChallengeOptions setChallengeOptions={setChallengeOptions} />

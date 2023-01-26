@@ -1,7 +1,7 @@
 .Circle,
 .Square {
   position: absolute;
-  background: $light-gradient;
+  background: $white-gradient;
   z-index: -2;
 }
 
@@ -9,8 +9,8 @@
   height: 170px;
   width: 170px;
   border-radius: 100rem;
-  box-shadow: 0px 10px 20px #d7dfff, inset -8px -8px 12px rgba(0, 0, 0, 0.1),
-    inset 8px 8px 16px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 10px 20px #eeeeff, inset -16px -16px 32px rgba(0, 0, 200, 0.1),
+    inset 16px 16px 16px rgba(255, 255, 255, 1);
 }
 
 .Square {
@@ -18,8 +18,8 @@
   width: 120px;
   border-radius: 2.6rem;
   transform: rotate(45deg);
-  box-shadow: 16px 0 16px #d7dfff, inset -12px -4px 12px rgba(0, 0, 0, 0.1),
-    inset 8px 0 16px rgba(255, 255, 255, 1);
+  box-shadow: 16px 0 16px #eeeeff, inset -12px -4px 12px rgba(0, 0, 200, 0.1),
+    inset 16px 0 16px rgba(255, 255, 255, 1);
 }
 
 .GradientText {

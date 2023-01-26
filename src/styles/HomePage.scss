@@ -10,6 +10,7 @@
   padding-block: 6rem 2rem;
   position: relative;
   margin-inline: auto;
+  overflow: hidden;
 
   .Circle {
     top: 25%;
@@ -56,17 +57,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 364px;
-  width: 384px;
+  height: 360px;
+  width: 360px;
+  border-radius: 50%;
   cursor: pointer;
-
-  &__Background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    filter: drop-shadow(28px 28px 20px #bdc3ff);
-  }
+  background: $dark-gradient;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+    inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+    inset 16px 16px 32px rgba(255, 255, 255, 0.5);
 
   &__Text {
     font-family: $work-sans;

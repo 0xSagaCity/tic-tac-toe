@@ -7,13 +7,13 @@ import connectionReducer from "./reducers/connectionReducer";
 import gameReducer from "./reducers/gameReducer";
 import "./styles/App.scss";
 import { initialConnection, initialGame, WINNING_STATES } from "./utils/data";
+import { CSSTransition } from "react-transition-group";
 
 function App(): JSX.Element {
   const [connectionState, connectionDispatch] = useReducer(
     connectionReducer,
     initialConnection
   );
-
   const [gameState, gameDispatch] = useReducer(gameReducer, initialGame);
 
   useEffect(() => {

@@ -6,6 +6,7 @@
   align-items: center;
   position: relative;
   padding-block: 2rem;
+  overflow: hidden;
 }
 
 .FormPageTop {
@@ -22,35 +23,47 @@
 }
 
 /* Challenge Options */
-.ChallengeOptions__Background {
-  height: 100%;
-  width: 100%;
+.ChallengeOptions__Container {
   position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-  background: $dark-gradient;
+
+  .ChallengeOptions__Background {
+    width: 200%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $dark-gradient;
+    z-index: -1;
+    border-radius: 50%;
+  }
 
   .ChallengeButton {
     font-family: $work-sans;
     font-size: $fs-base;
     font-weight: 800;
     border: none;
-    background: $light-gradient;
+    background: $white-gradient;
     color: $base-text-color;
     height: 300px;
     width: 300px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     letter-spacing: 2px;
-    box-shadow: 16px 24px 32px rgba(0, 0, 0, 0.2),
-      inset -16px -16px 32px rgba(0, 21, 171, 0.6), inset 16px 16px 32px #ffffff;
     outline: none;
     cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+      inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+      inset 16px 16px 32px rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -61,7 +74,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: $dark-gradient;
+  background: $base-background-color;
   overflow: hidden;
 
   .ReceiveSphere__Layer {
@@ -72,12 +85,12 @@
       width: 450px;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      background: white;
+      background: $dark-gradient;
       opacity: 20%;
       transform: translate(-50%, -50%);
       box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
         inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-        inset 16px 16px 32px #ffffff;
+        inset 16px 16px 32px rgba(255, 255, 255, 0.9);
     }
 
     &Two {
@@ -87,13 +100,13 @@
       width: 400px;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      background: white;
+      background: $dark-gradient;
       z-index: 1;
       opacity: 30%;
       transform: translate(-50%, -50%);
       box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
         inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-        inset 16px 16px 32px #ffffff;
+        inset 16px 16px 32px rgba(255, 255, 255, 0.9);
     }
 
     &Final {
@@ -103,7 +116,7 @@
       width: 300px;
       aspect-ratio: 1/1;
       border-radius: 50%;
-      background: white;
+      background: $dark-gradient;
       z-index: 2;
       opacity: 100%;
       transform: translate(-50%, -50%);
@@ -112,10 +125,11 @@
       font-family: $work-sans;
       font-size: $fs-base;
       font-weight: 800;
-      color: $base-text-color;
+      color: white;
+      letter-spacing: 2px;
       box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
         inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-        inset 16px 16px 32px #ffffff;
+        inset 16px 16px 32px rgba(255, 255, 255, 0.5);
     }
   }
 }
@@ -134,14 +148,12 @@
   border-radius: 1.4rem;
   font-family: $open-sans;
   font-size: $fs-small;
-  background: rgba(230, 230, 255, 1);
+  background: $transparent-gradient;
   color: $base-text-color;
   position: absolute;
   left: 50%;
   bottom: 2rem;
   transform: translateX(-50%);
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-    inset -4px -4px 12px rgba(0, 21, 171, 0.4), inset 4px 4px 12px #ffffff;
 
   &Inner__Wrapper {
     display: flex;
@@ -151,8 +163,8 @@
 
   &__Text {
     padding: 4px 16px;
-    background-color: $base-accent-light;
-    border-radius: 1rem;
+    background-color: white;
+    border-radius: 0.6rem;
   }
 
   &__Button {
@@ -160,6 +172,10 @@
     cursor: pointer;
     display: grid;
     place-items: center;
+
+    svg {
+      fill: $base-text-color;
+    }
   }
 }
 
@@ -182,7 +198,7 @@
   &__Steps {
     list-style: none;
     font-family: $open-sans;
-    font-size: $fs-base;
+    font-size: $fs-small;
     color: $base-text-color;
     display: flex;
     flex-direction: column;
@@ -315,7 +331,7 @@
         .IdForm__Ele,
         .IdForm__Ele input {
           font-family: $open-sans;
-          font-size: $fs-base;
+          font-size: $fs-small;
           color: $base-text-color;
         }
 
@@ -330,7 +346,7 @@
         padding: 1rem 2rem;
         align-self: flex-start;
         font-family: $work-sans;
-        font-size: $fs-base;
+        font-size: $fs-small;
         border: 2px solid $base-accent-light;
         border-radius: 1.25rem;
         color: $base-text-color;

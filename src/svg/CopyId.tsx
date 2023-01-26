@@ -1,26 +1,14 @@
 export default function CopyId() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="none">
-      <rect
-        width="14"
-        height="18"
-        viewBox="0 0 14 14"
-        x="1"
-        y="1"
-        fill="#E1E4FF"
-        stroke="#0C1D7A"
-        strokeWidth="2"
-        rx="3"
-      />
-      <rect
-        width="14"
-        height="16"
-        x="5.071"
-        y="5.393"
-        fill="#E1E4FF"
-        stroke="#0C1D7A"
-        strokeWidth="2"
-        rx="3"
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="19"
+      height="22"
+      fill="none"
+      viewBox="0 0 19 22"
+    >
+      <path
+        d="M17 20H6V6h11m0-2H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-3-4H2a2 2 0 0 0-2 2v14h2V2h12V0Z"
       />
     </svg>
   );

@@ -1,11 +1,62 @@
 import { Circle, Square } from "../component/Polygons";
-import Oval from "../svg/Oval";
 import { useNavigate } from "react-router-dom";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const root = useRef(null);
+  let ctx = gsap.context(() => {});
+
+  useLayoutEffect(() => {
+    gsap.to(".App", { visibility: "visible" });
+    ctx.add(() => {
+      gsap.from(".HomePageTop__Title", {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.4,
+        ease: "slow (0.4, 0.4, false)",
+      });
+      gsap.from(".HomePageTop__Para", {
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.8,
+        ease: "slow (0.4, 0.4, false)",
+      });
+      gsap.from(".Polygon", {
+        opacity: 0,
+        scale: 0.4,
+        y: "50%",
+        rotate: -100,
+        duration: 1.6,
+        delay: 1.6,
+        stagger: 0.4,
+        ease: "slow (0.4, 0.4, false)",
+      });
+      gsap.from(".PlayButton", {
+        scale: 0,
+        y: "100%",
+        duration: 0.8,
+        delay: 0.4,
+        ease: "slow (0.4, 0.4, false)",
+      });
+      gsap.from(".PlayButton__Text", {
+        opacity: 0,
+        y: 30,
+        delay: 1.4,
+        ease: "slow (0.4, 0.4, false)",
+      });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+
+  function onClick() {
+    navigate("/connection");
+  }
+
   return (
-    <div className="HomePage">
+    <div className="HomePage" ref={root}>
       <div className="HomePageTop">
         <h1 className="HomePageTop__Title GradientText">Tic Tac Toe</h1>
         <p className="HomePageTop__Para">
@@ -20,8 +71,7 @@ export default function HomePage() {
         </p>
       </div>
       <div className="HomePageBottom">
-        <button onClick={() => navigate("/connection")} className="PlayButton">
-          <Oval className="PlayButton__Background" />
+        <button onClick={onClick} className="PlayButton">
           <span className="PlayButton__Text">Play</span>
         </button>
       </div>
