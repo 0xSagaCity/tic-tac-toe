@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
-export default function HomePage() {
+export default function HomePage({}) {
   const navigate = useNavigate();
-  const root = useRef(null);
   let ctx = gsap.context(() => {});
+  const homeRoot = useRef(null);
 
   useLayoutEffect(() => {
     gsap.to(".App", { visibility: "visible" });
@@ -36,7 +36,6 @@ export default function HomePage() {
       });
       gsap.from(".PlayButton", {
         scale: 0,
-        y: "100%",
         duration: 0.8,
         delay: 0.4,
         ease: "slow (0.4, 0.4, false)",
@@ -47,7 +46,7 @@ export default function HomePage() {
         delay: 1.4,
         ease: "slow (0.4, 0.4, false)",
       });
-    }, root);
+    }, homeRoot);
     return () => ctx.revert();
   }, []);
 
@@ -56,7 +55,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="HomePage" ref={root}>
+    <div className="HomePage" ref={homeRoot}>
       <div className="HomePageTop">
         <h1 className="HomePageTop__Title GradientText">Tic Tac Toe</h1>
         <p className="HomePageTop__Para">

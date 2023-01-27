@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect } from "react";
+import { MouseEventHandler, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ConnectionStateType, GameStateType } from "../utils/types";
 
@@ -110,6 +110,8 @@ export default function GamePage({
   connectionState: ConnectionStateType;
 }) {
   const navigate = useNavigate();
+  const gameRoot = useRef(null);
+
   useEffect(() => {
     if (!gameState.gameStatusOn && gameState.gameResult === null) {
       navigate("/");
@@ -117,7 +119,7 @@ export default function GamePage({
   }, [gameState.gameStatusOn, gameState.gameResult]);
 
   return (
-    <div className="GamePage">
+    <div ref={gameRoot} className="GamePage">
       <div className="Game__Wrapper">
         <div className="InfoWrapper">
           <InfoContainer isOpponent={false} gameState={gameState} />

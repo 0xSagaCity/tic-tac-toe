@@ -34,26 +34,15 @@
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-
-  .ChallengeOptions__Background {
-    width: 200%;
-    aspect-ratio: 1/1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: $dark-gradient;
-    z-index: -1;
-    border-radius: 50%;
-  }
+  background: $base-background-color;
 
   .ChallengeButton {
     font-family: $work-sans;
     font-size: $fs-base;
     font-weight: 800;
     border: none;
-    background: $white-gradient;
-    color: $base-text-color;
+    background: $dark-gradient;
+    color: white;
     height: 300px;
     width: 300px;
     aspect-ratio: 1/1;
@@ -77,7 +66,7 @@
   background: $base-background-color;
   overflow: hidden;
 
-  .ReceiveSphere__Layer {
+  .Sphere__Layer {
     &One {
       position: absolute;
       top: 50%;

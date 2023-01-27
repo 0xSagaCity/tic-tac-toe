@@ -1,5 +1,6 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import { Route, Routes } from "react-router-dom";
+import TransitionComponent from "./component/Transition";
 import FormPage from "./pages/FormPage";
 import GamePage from "./pages/GamePage";
 import HomePage from "./pages/HomePage";
@@ -7,7 +8,6 @@ import connectionReducer from "./reducers/connectionReducer";
 import gameReducer from "./reducers/gameReducer";
 import "./styles/App.scss";
 import { initialConnection, initialGame, WINNING_STATES } from "./utils/data";
-import { CSSTransition } from "react-transition-group";
 
 function App(): JSX.Element {
   const [connectionState, connectionDispatch] = useReducer(
@@ -92,26 +92,37 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <TransitionComponent>
+              <HomePage />
+            </TransitionComponent>
+          }
+        />
         <Route
           path="/connection"
           element={
-            <FormPage
-              connectionState={connectionState}
-              connectionDispatch={connectionDispatch}
-              gameState={gameState}
-              gameDispatch={gameDispatch}
-            />
+            <TransitionComponent>
+              <FormPage
+                connectionState={connectionState}
+                connectionDispatch={connectionDispatch}
+                gameState={gameState}
+                gameDispatch={gameDispatch}
+              />
+            </TransitionComponent>
           }
         />
         <Route
           path="/game"
           element={
-            <GamePage
-              gameState={gameState}
-              gameDispatch={gameDispatch}
-              connectionState={connectionState}
-            />
+            <TransitionComponent>
+              <GamePage
+                gameState={gameState}
+                gameDispatch={gameDispatch}
+                connectionState={connectionState}
+              />
+            </TransitionComponent>
           }
         />
       </Routes>

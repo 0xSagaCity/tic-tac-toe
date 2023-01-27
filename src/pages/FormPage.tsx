@@ -28,9 +28,9 @@ function ReceiveChallenge({
 }: FormDialogType) {
   return (
     <div className="ReceiveChallengeContainer">
-      <div className="ReceiveSphere__LayerOne"></div>
-      <div className="ReceiveSphere__LayerTwo"></div>
-      <div className="ReceiveSphere__LayerFinal">WAITING</div>
+      <div className="Sphere__LayerOne"></div>
+      <div className="Sphere__LayerTwo"></div>
+      <div className="Sphere__LayerFinal">WAITING</div>
       <YourIdComponent
         connectionState={connectionState}
         connectionDispatch={connectionDispatch}
@@ -48,7 +48,6 @@ function ChallengeOptions({
 }) {
   return (
     <div className="ChallengeOptions__Container">
-      <div className="ChallengeOptions__Background"></div>
       <button
         onClick={() => setChallengeOptions("SEND")}
         className="ChallengeButton"
@@ -103,13 +102,6 @@ export default function FormPage({
   useLayoutEffect(() => {
     gsap.to(".App", { visibility: "visible" });
     ctx.add(() => {
-      gsap.from(".ChallengeOptions__Background", {
-        scale: 0,
-        top: "80%",
-        bottom: 0,
-        duration: 1.6,
-        ease: "slow (0.4, 0.4, false)",
-      });
       gsap.from(".ChallengeButton", {
         opacity: 0,
         yPercent: 20,
