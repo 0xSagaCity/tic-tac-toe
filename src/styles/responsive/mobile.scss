@@ -1,8 +1,9 @@
 @media (max-width: 730px) {
   /* Home Page */
   .HomePage {
-    padding-block-start: 2rem;
-    gap: 1rem;
+    padding-block-start: 4rem;
+    justify-content: flex-start;
+    gap: 2rem;
   }
 
   .HomePageTop {
@@ -18,6 +19,14 @@
     &__Para {
       align-self: flex-start;
       font-size: 12px;
+    }
+  }
+
+  .HomePageBottom {
+    .PlayButton {
+      &__Text {
+        font-size: $fs-large;
+      }
     }
   }
 

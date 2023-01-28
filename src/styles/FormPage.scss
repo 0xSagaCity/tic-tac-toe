@@ -36,6 +36,15 @@
   flex-wrap: wrap;
   background: $base-background-color;
 
+  .ChallengeButton__Container {
+    height: 412px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+
   .ChallengeButton {
     font-family: $work-sans;
     font-size: $fs-base;
@@ -43,16 +52,48 @@
     border: none;
     background: $dark-gradient;
     color: white;
-    height: 300px;
-    width: 300px;
+    width: 260px;
+    height: 260px;
     aspect-ratio: 1/1;
+    padding-block: 4rem;
     border-radius: 50%;
     letter-spacing: 2px;
     outline: none;
+    z-index: 4;
     cursor: pointer;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
       inset -16px -16px 32px rgba(0, 21, 171, 0.6),
       inset 16px 16px 32px rgba(255, 255, 255, 0.5);
+  }
+
+  .Button__Layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $dark-gradient;
+    border-radius: 50%;
+  }
+
+  .Layer__One {
+    height: 90%;
+    width: 90%;
+    aspect-ratio: 1/1;
+    opacity: 20%;
+    z-index: 1;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+      inset 16px 16px 32px rgba(255, 255, 255, 0.8);
+  }
+
+  .Layer__Two {
+    height: 75%;
+    width: 75%;
+    aspect-ratio: 1/1;
+    opacity: 30%;
+    z-index: 3;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4),
+      inset -16px -16px 32px rgba(0, 21, 171, 0.8),
+      inset 16px 16px 32px rgba(255, 255, 255, 0.8);
   }
 }
 

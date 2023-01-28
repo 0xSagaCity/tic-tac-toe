@@ -48,18 +48,26 @@ function ChallengeOptions({
 }) {
   return (
     <div className="ChallengeOptions__Container">
-      <button
-        onClick={() => setChallengeOptions("SEND")}
-        className="ChallengeButton"
-      >
-        SEND
-      </button>
-      <button
-        onClick={() => setChallengeOptions("RECEIVE")}
-        className="ChallengeButton"
-      >
-        RECEIVE
-      </button>
+      <div className="ChallengeButton__Container">
+        <div className="Button__Layer Layer__One"></div>
+        <div className="Button__Layer Layer__Two"></div>
+        <button
+          onClick={() => setChallengeOptions("SEND")}
+          className="ChallengeButton"
+        >
+          SEND
+        </button>
+      </div>
+      <div className="ChallengeButton__Container">
+        <div className="Button__Layer Layer__One"></div>
+        <div className="Button__Layer Layer__Two"></div>
+        <button
+          onClick={() => setChallengeOptions("RECEIVE")}
+          className="ChallengeButton"
+        >
+          RECEIVE
+        </button>
+      </div>
     </div>
   );
 }
@@ -102,10 +110,8 @@ export default function FormPage({
   useLayoutEffect(() => {
     gsap.to(".App", { visibility: "visible" });
     ctx.add(() => {
-      gsap.from(".ChallengeButton", {
-        opacity: 0,
+      gsap.from(".ChallengeButton__Container", {
         yPercent: 20,
-        delay: 0.6,
         stagger: 0.4,
         ease: "slow (0.4, 0.4, false)",
       });
@@ -114,23 +120,28 @@ export default function FormPage({
   }, []);
 
   return (
-    <div ref={formRoot} className="FormPage">
-      <div className="FormPageTop">
-        {challengeOptions === "NONE" && (
-          <ChallengeOptions setChallengeOptions={setChallengeOptions} />
-        )}
-        {challengeOptions === "SEND" && (
-          <SendChallenge
-            connectionState={connectionState}
-            connectionDispatch={connectionDispatch}
-          />
-        )}
-        {challengeOptions === "RECEIVE" && (
-          <ReceiveChallenge
-            connectionState={connectionState}
-            connectionDispatch={connectionDispatch}
-          />
-        )}
+    <div className="Page">
+      <div className="PageTransition__Overlay Overlay__One"></div>
+      <div className="PageTransition__Overlay Overlay__Two"></div>
+      <div className="PageTransition__Overlay Overlay__Three"></div>
+      <div ref={formRoot} className="FormPage">
+        <div className="FormPageTop">
+          {challengeOptions === "NONE" && (
+            <ChallengeOptions setChallengeOptions={setChallengeOptions} />
+          )}
+          {challengeOptions === "SEND" && (
+            <SendChallenge
+              connectionState={connectionState}
+              connectionDispatch={connectionDispatch}
+            />
+          )}
+          {challengeOptions === "RECEIVE" && (
+            <ReceiveChallenge
+              connectionState={connectionState}
+              connectionDispatch={connectionDispatch}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,29 +1,65 @@
-import { SwitchTransition, Transition } from "react-transition-group";
-import { useLocation } from "react-router-dom";
 import gsap from "gsap";
+import { useLocation } from "react-router-dom";
+import { SwitchTransition, Transition } from "react-transition-group";
 
 const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  const entryAnimation = () => {
+    gsap.set(".Page", { y: 10 });
+    gsap
+      .timeline({ paused: true })
+      .to(".Page", {
+        y: 0,
+        duration: 0.2,
+        ease: "circ.inOut",
+      })
+      .play();
+  };
+
+  const exitAnimation = () => {
+    gsap.set(".PageTransition__Overlay", { zIndex: 20 });
+    gsap.set(".Overlay__One", { rotate: -20 });
+    gsap.set(".Overlay__Two", { rotate: 20 });
+    gsap.set(".Overlay__Three", { rotate: -20 });
+    gsap
+      .timeline({ paused: true })
+      .to(".Overlay__One", {
+        top: "-200",
+        rotate: 0,
+        duration: 1.2,
+        ease: "circ.inOut",
+      })
+      .to(
+        ".Overlay__Two",
+        {
+          top: "-200",
+          rotate: 0,
+          duration: 1.4,
+          ease: "circ.inOut",
+        },
+        "<"
+      )
+      .to(
+        ".Overlay__Three",
+        {
+          top: "-200",
+          rotate: 0,
+          duration: 1.4,
+          delay: 0.2,
+          ease: "circ.inOut",
+        },
+        "<"
+      )
+      .play();
+  };
+
   return (
     <SwitchTransition>
       <Transition
         key={location.pathname}
-        timeout={500}
-        onEnter={(node: any) => {
-          gsap.set(node, { autoAlpha: 0, scale: 0.8, xPercent: -100 });
-          gsap
-            .timeline({ paused: true })
-            .to(node, { autoAlpha: 1, xPercent: 0, duration: 0.25 })
-            .to(node, { scale: 1, duration: 0.25 })
-            .play();
-        }}
-        onExit={(node) => {
-          gsap
-            .timeline({ paused: true })
-            .to(node, { scale: 0.8, duration: 0.2 })
-            .to(node, { xPercent: 100, autoAlpha: 0, duration: 0.2 })
-            .play();
-        }}
+        timeout={1300}
+        onEnter={entryAnimation}
+        onExit={exitAnimation}
       >
         {children}
       </Transition>
