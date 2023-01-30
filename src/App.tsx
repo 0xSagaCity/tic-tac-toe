@@ -1,7 +1,11 @@
 import { useEffect, useReducer } from "react";
 import { Route, Routes } from "react-router-dom";
 import TransitionComponent from "./component/Transition";
-import FormPage from "./pages/FormPage";
+import FormPage, {
+  ChallengeOptions,
+  ReceiveChallenge,
+  SendChallenge,
+} from "./pages/FormPage";
 import GamePage from "./pages/GamePage";
 import HomePage from "./pages/HomePage";
 import connectionReducer from "./reducers/connectionReducer";
@@ -112,7 +116,38 @@ function App(): JSX.Element {
               />
             </TransitionComponent>
           }
-        />
+        >
+          <Route
+            path="receive"
+            element={
+              <TransitionComponent>
+                <ReceiveChallenge
+                  connectionState={connectionState}
+                  connectionDispatch={connectionDispatch}
+                />
+              </TransitionComponent>
+            }
+          />
+          <Route
+            path="send"
+            element={
+              <TransitionComponent>
+                <SendChallenge
+                  connectionState={connectionState}
+                  connectionDispatch={connectionDispatch}
+                />
+              </TransitionComponent>
+            }
+          />
+          <Route
+            path="options"
+            element={
+              <TransitionComponent>
+                <ChallengeOptions />
+              </TransitionComponent>
+            }
+          />
+        </Route>
         <Route
           path="/game"
           element={

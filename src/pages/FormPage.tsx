@@ -1,13 +1,11 @@
 import gsap from "gsap";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import FormDialog from "../component/FormDialog";
 import YourIdComponent from "../component/YourIdComponent";
 import { FormDialogType, FormPageType } from "../utils/types";
 
-type challengeOptionType = "NONE" | "RECEIVE" | "SEND";
-
-function SendChallenge({
+export function SendChallenge({
   connectionState,
   connectionDispatch,
 }: FormDialogType) {
@@ -22,14 +20,29 @@ function SendChallenge({
   );
 }
 
-function ReceiveChallenge({
+export function ReceiveChallenge({
   connectionState,
   connectionDispatch,
 }: FormDialogType) {
+  useLayoutEffect(() => {
+    gsap.fromTo(
+      ".Sphere__Layer",
+      {
+        scale: 0,
+      },
+      {
+        scale: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: "expo.easeInOut",
+      }
+    );
+  }, []);
+
   return (
     <div className="ReceiveChallengeContainer">
-      <div className="Sphere__LayerOne"></div>
-      <div className="Sphere__LayerTwo"></div>
+      <div className="Sphere__LayerOne Sphere__Layer"></div>
+      <div className="Sphere__LayerTwo Sphere__Layer"></div>
       <div className="Sphere__LayerFinal">WAITING</div>
       <YourIdComponent
         connectionState={connectionState}
@@ -39,30 +52,53 @@ function ReceiveChallenge({
   );
 }
 
-function ChallengeOptions({
-  setChallengeOptions,
-}: {
-  setChallengeOptions: React.Dispatch<
-    React.SetStateAction<challengeOptionType>
-  >;
-}) {
+export function ChallengeOptions({}) {
+  const navigate = useNavigate();
+  const optionsRoot = useRef(null);
+  const ctx = gsap.context(() => {});
+
+  useLayoutEffect(() => {
+    ctx.add((context: any) => {
+      context.add("hoverExpand", () => {
+        gsap.to(".SendButton .Button__Layer", {
+          scale: 2,
+          stagger: -0.4,
+          repeat: -1,
+          yoyo: true,
+          ease: "expo.easeInOut",
+        });
+      });
+    }, optionsRoot);
+    return () => ctx.revert();
+  }, []);
+
+  function onMouseEnter() {
+    ctx.hoverExpand();
+  }
+
+  function onMouseLeave() {
+    ctx.revert();
+  }
+
   return (
-    <div className="ChallengeOptions__Container">
-      <div className="ChallengeButton__Container">
+    <div className="ChallengeOptions__Container" ref={optionsRoot}>
+      <div className="SendButton ChallengeButton__Container">
         <div className="Button__Layer Layer__One"></div>
         <div className="Button__Layer Layer__Two"></div>
         <button
-          onClick={() => setChallengeOptions("SEND")}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          onClick={() => navigate("/connection/send")}
           className="ChallengeButton"
         >
           SEND
         </button>
       </div>
-      <div className="ChallengeButton__Container">
+      <div className="ReceiveButton ChallengeButton__Container">
         <div className="Button__Layer Layer__One"></div>
         <div className="Button__Layer Layer__Two"></div>
         <button
-          onClick={() => setChallengeOptions("RECEIVE")}
+          onClick={() => navigate("/connection/receive")}
           className="ChallengeButton"
         >
           RECEIVE
@@ -78,10 +114,7 @@ export default function FormPage({
   gameState,
   gameDispatch,
 }: FormPageType): JSX.Element {
-  const [challengeOptions, setChallengeOptions] =
-    useState<challengeOptionType>("NONE");
   const navigate = useNavigate();
-  const ctx = gsap.context(() => {});
   const formRoot = useRef(null);
 
   useEffect(() => {
@@ -109,14 +142,6 @@ export default function FormPage({
 
   useLayoutEffect(() => {
     gsap.to(".App", { visibility: "visible" });
-    ctx.add(() => {
-      gsap.from(".ChallengeButton__Container", {
-        yPercent: 20,
-        stagger: 0.4,
-        ease: "slow (0.4, 0.4, false)",
-      });
-    }, formRoot);
-    return () => ctx.revert();
   }, []);
 
   return (
@@ -124,23 +149,10 @@ export default function FormPage({
       <div className="PageTransition__Overlay Overlay__One"></div>
       <div className="PageTransition__Overlay Overlay__Two"></div>
       <div className="PageTransition__Overlay Overlay__Three"></div>
+      <div className="PageTransition__Overlay Overlay__Four"></div>
       <div ref={formRoot} className="FormPage">
         <div className="FormPageTop">
-          {challengeOptions === "NONE" && (
-            <ChallengeOptions setChallengeOptions={setChallengeOptions} />
-          )}
-          {challengeOptions === "SEND" && (
-            <SendChallenge
-              connectionState={connectionState}
-              connectionDispatch={connectionDispatch}
-            />
-          )}
-          {challengeOptions === "RECEIVE" && (
-            <ReceiveChallenge
-              connectionState={connectionState}
-              connectionDispatch={connectionDispatch}
-            />
-          )}
+          <Outlet />
         </div>
       </div>
     </div>

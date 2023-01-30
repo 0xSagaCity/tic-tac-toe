@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import {
   ConnectionStateType,
   FormDialogType,
   SideFormType,
 } from "../utils/types";
+import gsap from "gsap";
 
 function SideForm({
   setFormStepOne,
@@ -25,25 +26,64 @@ function SideForm({
 
   useEffect(() => {
     connectionDispatch({ type: "SET_SIDE", payload: "O" });
-  }, []);
+  }, [connectionDispatch]);
+
+  function stepExit() {
+    gsap
+      .timeline()
+      .to(".Option_Container--Selected .SelectionBar", {
+        opacity: 0,
+        duration: 0.4,
+        ease: "expo.easeInOut",
+      })
+      .to(
+        ".Option_Container--Unselected .SelectionBar",
+        {
+          opacity: 1,
+          duration: 0.4,
+          ease: "expo.easeInOut",
+        },
+        0
+      )
+      .to(
+        ".Option_Container--Selected .OptionEle",
+        {
+          background: "#d2d6fb",
+          duration: 0.4,
+          ease: "expo.easeInOut",
+        },
+        0
+      )
+      .to(
+        ".Option_Container--Unselected .OptionEle",
+        {
+          background: "linear-gradient(296deg, #0026ff 13%, #7e00cc 74%)",
+          duration: 0.4,
+          ease: "expo.easeInOut",
+          onComplete:
+            connectionState.mySideChar === "O"
+              ? () => changeOption("X")
+              : () => changeOption("O"),
+        },
+        0
+      );
+  }
 
   return (
     <div className="FormContainer">
       <div className="FormInner__Wrapper">
         <div className="FormContainer__Options">
-          <div onClick={() => changeOption("X")} className={OptionOneClass}>
+          <div onClick={stepExit} className={OptionOneClass}>
             <div className="OptionEle">X</div>
             <div className="SelectionBar"></div>
           </div>
-          <div onClick={() => changeOption("O")} className={OptionTwoClass}>
+          <div onClick={stepExit} className={OptionTwoClass}>
             <div className="OptionEle">O</div>
             <div className="SelectionBar"></div>
           </div>
         </div>
         <button
-          onClick={() => {
-            setFormStepOne(false);
-          }}
+          onClick={() => setFormStepOne(false)}
           className="FormContainer__Button"
         >
           Next
@@ -109,6 +149,23 @@ export default function FormDialog({
   const StepTwoClass = formStepOne
     ? "Step Step--Inactive"
     : "Step Step--Active";
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".Step__Background",
+        {
+          xPercent: -200,
+        },
+        {
+          duration: 0.8,
+          ease: "expo.easeInOut",
+          xPercent: 0,
+        }
+      );
+    });
+    return () => ctx.revert();
+  }, [formStepOne]);
 
   return (
     <div className="FormDialog">

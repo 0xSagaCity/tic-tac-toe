@@ -5,51 +5,33 @@ import { SwitchTransition, Transition } from "react-transition-group";
 const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const entryAnimation = () => {
-    gsap.set(".Page", { y: 10 });
+    gsap.set(".Page", { opacity: 0.4, yPercent: 10 });
     gsap
       .timeline({ paused: true })
       .to(".Page", {
-        y: 0,
-        duration: 0.2,
-        ease: "circ.inOut",
+        opacity: 1,
+        yPercent: 0,
+        duration: 0.3,
+        ease: "expo.easeInOut",
       })
       .play();
   };
 
   const exitAnimation = () => {
-    gsap.set(".PageTransition__Overlay", { zIndex: 20 });
-    gsap.set(".Overlay__One", { rotate: -20 });
-    gsap.set(".Overlay__Two", { rotate: 20 });
-    gsap.set(".Overlay__Three", { rotate: -20 });
+    gsap.set(".PageTransition__Overlay", { zIndex: 12 });
+    gsap.set(".Overlay__One", { rotate: -12 });
+    gsap.set(".Overlay__Two", { rotate: 12 });
+    gsap.set(".Overlay__Three", { rotate: -12 });
+    gsap.set(".Overlay__Four", { rotate: 12 });
     gsap
       .timeline({ paused: true })
-      .to(".Overlay__One", {
+      .to(".PageTransition__Overlay", {
         top: "-200",
         rotate: 0,
-        duration: 1.2,
-        ease: "circ.inOut",
+        duration: 1,
+        stagger: 0.2,
+        ease: "expo.easeInOut",
       })
-      .to(
-        ".Overlay__Two",
-        {
-          top: "-200",
-          rotate: 0,
-          duration: 1.4,
-          ease: "circ.inOut",
-        },
-        "<"
-      )
-      .to(
-        ".Overlay__Three",
-        {
-          top: "-200",
-          rotate: 0,
-          duration: 1.4,
-          delay: 0.2,
-          ease: "circ.inOut",
-        },
-        "<"
-      )
       .play();
   };
 
@@ -57,7 +39,12 @@ const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
     <SwitchTransition>
       <Transition
         key={location.pathname}
-        timeout={1300}
+        appear={true}
+        timeout={{
+          appear: 100,
+          enter: 300,
+          exit: 1300,
+        }}
         onEnter={entryAnimation}
         onExit={exitAnimation}
       >

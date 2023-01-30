@@ -23,28 +23,33 @@
 
 body {
   background-color: $base-background-color;
+  overflow: hidden;
 }
 
 .PageTransition__Overlay {
-  position: fixed;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 200%;
   height: 200%;
-  transform-origin: center;
 }
 
 .Overlay__One {
   top: 150%;
-  background: $base-text-color;
+  background: #0026ff;
 }
 
 .Overlay__Two {
   top: 150%;
-  background: $dark-gradient;
+  background: $base-text-color;
 }
 
 .Overlay__Three {
+  top: 150%;
+  background: #7e00cc;
+}
+
+.Overlay__Four {
   top: 150%;
   background: $base-background-color;
 }

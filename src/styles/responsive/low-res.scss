@@ -28,7 +28,7 @@
   }
 
   .FormPageTop__Title {
-    font-size: $fs-large;
+    font-size: $fs-larger;
   }
 
   .FormDialog__FormEle .FormContainer__Button {
@@ -75,6 +75,17 @@
 
   .FormPageTop {
     padding-inline: 2rem;
+    &__Title {
+      font-size: $fs-large;
+    }
+  }
+
+  .FormContainer {
+    .FormInner__Wrapper {
+      .FormContainer__Options {
+        gap: 2rem;
+      }
+    }
   }
 
   .FormDialog {

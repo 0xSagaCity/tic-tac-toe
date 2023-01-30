@@ -34,6 +34,7 @@
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
+  z-index: 1;
   background: $base-background-color;
 
   .ChallengeButton__Container {
@@ -76,8 +77,8 @@
   }
 
   .Layer__One {
-    height: 90%;
-    width: 90%;
+    height: 50%;
+    width: 50%;
     aspect-ratio: 1/1;
     opacity: 20%;
     z-index: 1;
@@ -86,8 +87,8 @@
   }
 
   .Layer__Two {
-    height: 75%;
-    width: 75%;
+    height: 40%;
+    width: 40%;
     aspect-ratio: 1/1;
     opacity: 30%;
     z-index: 3;
@@ -244,11 +245,13 @@
       justify-content: flex-start;
       gap: 1rem;
       position: relative;
+      overflow: hidden;
 
       &__Background {
         position: absolute;
         height: 100%;
-        width: 100%;
+        width: 90%;
+        left: 0;
         z-index: 1;
         border-radius: 1.2rem;
       }
@@ -300,7 +303,8 @@
 
       &__Options {
         display: flex;
-        gap: 2rem;
+        gap: 4rem;
+        overflow: hidden;
 
         .OptionEle {
           height: 8rem;
@@ -365,6 +369,11 @@
           color: $base-text-color;
         }
 
+        .IdForm__Ele input:focus,
+        .IdForm__Ele input:focus-visible {
+          border: 2px solid #0026ff;
+        }
+
         .IdForm__Ele {
           display: flex;
           flex-direction: column;
@@ -382,6 +391,45 @@
         color: $base-text-color;
         background: none;
         cursor: pointer;
+        transition: all 400ms ease-in;
+      }
+
+      &__Button:hover,
+      &__Button:focus {
+        background: $dark-gradient;
+        color: white;
+        transform: translateY(-4px);
+        box-shadow: 4px 4px 16px 8px rgba(40, 40, 200, 0.2);
+      }
+
+      &__Button:focus,
+      &__Button:focus-visible {
+        outline: 2px solid #0026ff;
+        outline-offset: 2px;
+      }
+
+      &__Button:active {
+        transform: translateY(0);
+        box-shadow: none;
+      }
+
+      .Button__Layer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: $dark-gradient;
+        border-radius: 50%;
+      }
+
+      .Layer__One {
+        height: 50%;
+        width: 50%;
+        aspect-ratio: 1/1;
+        opacity: 20%;
+        z-index: 1;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+          inset 16px 16px 32px rgba(255, 255, 255, 0.8);
       }
     }
   }

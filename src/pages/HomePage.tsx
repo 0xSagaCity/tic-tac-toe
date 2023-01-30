@@ -18,7 +18,7 @@ export default function HomePage({}) {
         opacity: 0,
         yPercent: 40,
         duration: 0.8,
-        ease: ExpoScaleEase.config(0.5, 3, "power2.inOut"),
+        ease: "expo.easeInOut",
       });
       gsap.from(".Polygon", {
         opacity: 0,
@@ -28,20 +28,20 @@ export default function HomePage({}) {
         duration: 1.6,
         delay: 0.8,
         stagger: 0.4,
-        ease: ExpoScaleEase.config(0.5, 3, "power2.inOut"),
+        ease: "expo.easeInOut",
       });
       gsap.from(".PlayButton", {
         scale: 0,
         yPercent: 80,
         duration: 1.6,
-        ease: ExpoScaleEase.config(0.5, 3, "power2.inOut"),
+        ease: "expo.easeInOut",
       });
       gsap.from(".PlayButton__Text", {
         opacity: 0,
         yPercent: 20,
         duration: 0.4,
         delay: 1.6,
-        ease: ExpoScaleEase.config(0.5, 3, "power2.inOut"),
+        ease: "expo.easeInOut",
       });
     }, homeRoot);
     return () => ctx.revert();
@@ -51,6 +51,7 @@ export default function HomePage({}) {
     gsap.to(".PlayButton", {
       duration: 0.1,
       scale: 1.1,
+      ease: "expo.easeInOut",
     });
   }
 
@@ -58,6 +59,7 @@ export default function HomePage({}) {
     gsap.to(".PlayButton", {
       duration: 0.1,
       scale: 1,
+      ease: "expo.easeInOut",
     });
   }
 
@@ -67,11 +69,13 @@ export default function HomePage({}) {
       .to(".PlayButton", {
         duration: 0.1,
         scale: 0.8,
+        ease: "expo.easeInOut",
       })
       .to(".PlayButton", {
         duration: 0.1,
         scale: 1,
-        onComplete: () => navigate("/connection"),
+        ease: "expo.easeInOut",
+        onComplete: () => navigate("/connection/options"),
       })
       .play();
   }
@@ -81,10 +85,11 @@ export default function HomePage({}) {
       <div className="PageTransition__Overlay Overlay__One"></div>
       <div className="PageTransition__Overlay Overlay__Two"></div>
       <div className="PageTransition__Overlay Overlay__Three"></div>
+      <div className="PageTransition__Overlay Overlay__Four"></div>
       <div className="HomePage" ref={homeRoot}>
         <div className="HomePageTop">
           <h1 className="HomePageTop__Title GradientText">Tic Tac Toe</h1>
-          <p className="HomePageTop__Para">
+          <p className="HomePageTop__Para StaggerEnter">
             Welcome to our online multiplayer Tic Tac Toe game! In this web app,
             you can play the classic game of Tic Tac Toe with friends by sharing
             a unique game link. To start, simply create a new game by clicking
