@@ -19,14 +19,15 @@
 .App {
   min-height: 100vh;
   visibility: hidden;
+  overflow: hidden;
 }
 
 body {
   background-color: $base-background-color;
-  overflow: hidden;
 }
 
 .PageTransition__Overlay {
+  display: none;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

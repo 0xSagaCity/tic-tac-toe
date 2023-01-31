@@ -33,14 +33,14 @@ export default function HomePage({}) {
       gsap.from(".PlayButton", {
         scale: 0,
         yPercent: 80,
-        duration: 1.6,
+        duration: 0.6,
         ease: "expo.easeInOut",
       });
       gsap.from(".PlayButton__Text", {
         opacity: 0,
         yPercent: 20,
         duration: 0.4,
-        delay: 1.6,
+        delay: 0.6,
         ease: "expo.easeInOut",
       });
     }, homeRoot);
@@ -63,7 +63,7 @@ export default function HomePage({}) {
     });
   }
 
-  function onClick() {
+  function onClick(next: gsap.Callback) {
     gsap
       .timeline({ paused: true })
       .to(".PlayButton", {
@@ -75,7 +75,7 @@ export default function HomePage({}) {
         duration: 0.1,
         scale: 1,
         ease: "expo.easeInOut",
-        onComplete: () => navigate("/connection/options"),
+        onComplete: next,
       })
       .play();
   }
@@ -88,27 +88,37 @@ export default function HomePage({}) {
       <div className="PageTransition__Overlay Overlay__Four"></div>
       <div className="HomePage" ref={homeRoot}>
         <div className="HomePageTop">
-          <h1 className="HomePageTop__Title GradientText">Tic Tac Toe</h1>
-          <p className="HomePageTop__Para StaggerEnter">
-            Welcome to our online multiplayer Tic Tac Toe game! In this web app,
-            you can play the classic game of Tic Tac Toe with friends by sharing
-            a unique game link. To start, simply create a new game by clicking
-            on the "Play" button. Once you have created the game, you can share
-            the link with your friend and start playing Tic Tac Toe in
-            real-time. The game is designed to be user-friendly, with simple
-            controls and an intuitive interface. So, grab a friend and get ready
-            to play Tic Tac Toe like never before!
-          </p>
-        </div>
-        <div className="HomePageBottom">
-          <button
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            onClick={onClick}
-            className="PlayButton"
-          >
-            <span className="PlayButton__Text">Play</span>
-          </button>
+          <div className="TextContainer">
+            <h1 className="HomePageTop__Title GradientText">Tic Tac Toe</h1>
+            <p className="HomePageTop__Para StaggerEnter">
+              Welcome to our online multiplayer Tic Tac Toe game! In this web
+              app, you can play the classic game of Tic Tac Toe with friends by
+              sharing a unique game link. To start, simply create a new game by
+              clicking on the "Play" button. Once you have created the game, you
+              can share the link with your friend and start playing Tic Tac Toe
+              in real-time. The game is designed to be user-friendly, with
+              simple controls and an intuitive interface. So, grab a friend and
+              get ready to play Tic Tac Toe like never before!
+            </p>
+          </div>
+          <div className="ButtonContainer">
+            <button
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              onClick={() => onClick(() => navigate("/connection/send"))}
+              className="PlayButton SendButton"
+            >
+              <span className="PlayButton__Text">Send</span>
+            </button>
+            <button
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              onClick={() => onClick(() => navigate("/connection/receive"))}
+              className="PlayButton ReceiveButton"
+            >
+              <span className="PlayButton__Text">Receive</span>
+            </button>
+          </div>
         </div>
         <Circle />
         <Square />

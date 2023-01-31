@@ -113,7 +113,7 @@ function IdForm({
         type: "SEND_CHAR",
         payload: connectionState.mySideChar,
       });
-    }, 3000);
+    }, 1000);
   }
 
   return (

@@ -13,88 +13,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-inline-start: 15%;
 
   &__Title {
     font-size: $fs-larger;
     text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* Challenge Options */
-.ChallengeOptions__Container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  z-index: 1;
-  background: $base-background-color;
-
-  .ChallengeButton__Container {
-    height: 412px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    position: relative;
-  }
-
-  .ChallengeButton {
-    font-family: $work-sans;
-    font-size: $fs-base;
-    font-weight: 800;
-    border: none;
-    background: $dark-gradient;
-    color: white;
-    width: 260px;
-    height: 260px;
-    aspect-ratio: 1/1;
-    padding-block: 4rem;
-    border-radius: 50%;
-    letter-spacing: 2px;
-    outline: none;
-    z-index: 4;
-    cursor: pointer;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-      inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-      inset 16px 16px 32px rgba(255, 255, 255, 0.5);
-  }
-
-  .Button__Layer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: $dark-gradient;
-    border-radius: 50%;
-  }
-
-  .Layer__One {
-    height: 50%;
-    width: 50%;
-    aspect-ratio: 1/1;
-    opacity: 20%;
-    z-index: 1;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-      inset 16px 16px 32px rgba(255, 255, 255, 0.8);
-  }
-
-  .Layer__Two {
-    height: 40%;
-    width: 40%;
-    aspect-ratio: 1/1;
-    opacity: 30%;
-    z-index: 3;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4),
-      inset -16px -16px 32px rgba(0, 21, 171, 0.8),
-      inset 16px 16px 32px rgba(255, 255, 255, 0.8);
   }
 }
 
@@ -106,61 +29,71 @@
   top: 0;
   left: 0;
   background: $base-background-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 6rem;
   overflow: hidden;
 
-  .Sphere__Layer {
-    &One {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 450px;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      background: $dark-gradient;
-      opacity: 20%;
-      transform: translate(-50%, -50%);
-      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-        inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-        inset 16px 16px 32px rgba(255, 255, 255, 0.9);
-    }
+  .Indicator__Component {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    .Sphere__Layer {
+      &One {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 450px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background: $dark-gradient;
+        opacity: 20%;
+        transform: translate(-50%, -50%);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+          inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+          inset 16px 16px 32px rgba(255, 255, 255, 0.9);
+      }
 
-    &Two {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 400px;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      background: $dark-gradient;
-      z-index: 1;
-      opacity: 30%;
-      transform: translate(-50%, -50%);
-      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-        inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-        inset 16px 16px 32px rgba(255, 255, 255, 0.9);
-    }
+      &Two {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background: $dark-gradient;
+        z-index: 1;
+        opacity: 30%;
+        transform: translate(-50%, -50%);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+          inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+          inset 16px 16px 32px rgba(255, 255, 255, 0.9);
+      }
 
-    &Final {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 300px;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      background: $dark-gradient;
-      z-index: 2;
-      opacity: 100%;
-      transform: translate(-50%, -50%);
-      display: grid;
-      place-items: center;
-      font-family: $work-sans;
-      font-size: $fs-base;
-      font-weight: 800;
-      color: white;
-      letter-spacing: 2px;
-      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-        inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-        inset 16px 16px 32px rgba(255, 255, 255, 0.5);
+      &Final {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background: $dark-gradient;
+        z-index: 2;
+        opacity: 100%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        place-items: center;
+        font-family: $work-sans;
+        font-size: $fs-base;
+        font-weight: 800;
+        color: white;
+        letter-spacing: 2px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+          inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+          inset 16px 16px 32px rgba(255, 255, 255, 0.5);
+      }
     }
   }
 }
@@ -181,10 +114,6 @@
   font-size: $fs-small;
   background: $transparent-gradient;
   color: $base-text-color;
-  position: absolute;
-  left: 50%;
-  bottom: 2rem;
-  transform: translateX(-50%);
 
   &Inner__Wrapper {
     display: flex;
@@ -196,6 +125,11 @@
     padding: 4px 16px;
     background-color: white;
     border-radius: 0.6rem;
+  }
+
+  &__ButtonContainer {
+    display: flex;
+    gap: 1.5rem;
   }
 
   &__Button {

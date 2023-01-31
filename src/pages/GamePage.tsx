@@ -1,6 +1,7 @@
-import { MouseEventHandler, useEffect, useRef } from "react";
+import { MouseEventHandler, useEffect, useLayoutEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ConnectionStateType, GameStateType } from "../utils/types";
+import gsap from "gsap";
 
 function InfoContainer({
   gameState,
@@ -43,12 +44,25 @@ function InfoContainer({
 function GameCell({
   value,
   onClick,
+  turn,
 }: {
   value: string;
   onClick: MouseEventHandler;
+  turn: boolean;
 }): JSX.Element {
+  const cellRef = useRef(null);
+  function cellClick() {
+    if (turn) {
+      gsap.to(cellRef.current, {
+        rotateY: 180,
+        duration: 0.4,
+        ease: "expo.easIneOut",
+        onStart: onClick,
+      });
+    }
+  }
   return (
-    <div className="GameCell" onClick={onClick}>
+    <div className="GameCell" ref={cellRef} onClick={cellClick}>
       <span>{value}</span>
     </div>
   );
@@ -83,7 +97,12 @@ function GameBoard({
           }
         };
         return (
-          <GameCell key={`GameCell-${key}`} onClick={onClick} value={val} />
+          <GameCell
+            key={`GameCell-${key}`}
+            turn={gameState.isMyTurn}
+            onClick={onClick}
+            value={val}
+          />
         );
       })}
     </div>
@@ -91,11 +110,24 @@ function GameBoard({
 }
 
 function GameResult({ result }: { result: "DRAW" | "WIN" | "LOSS" }) {
+  useLayoutEffect(() => {
+    gsap.fromTo(
+      ".GameResult",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: "expo.easIneOut",
+      }
+    );
+  }, []);
   return (
     <div className="GameResult">
-      {result === "DRAW" && "GAME DRAWN"}
-      {result === "WIN" && "GAME WIN"}
-      {result === "LOSS" && "GAME LOSS"}
+      {result === "DRAW" && <h2 className="GradientText"> GAME DRAWN</h2>}
+      {result === "WIN" && <h2 className="GradientText">GAME WIN</h2>}
+      {result === "LOSS" && <h2 className="GradientText"> GAME LOSS</h2>}
     </div>
   );
 }
@@ -119,21 +151,27 @@ export default function GamePage({
   }, [gameState.gameStatusOn, gameState.gameResult]);
 
   return (
-    <div ref={gameRoot} className="GamePage">
-      <div className="Game__Wrapper">
-        <div className="InfoWrapper">
-          <InfoContainer isOpponent={false} gameState={gameState} />
-          <InfoContainer isOpponent={true} gameState={gameState} />
+    <div className="Page">
+      <div className="PageTransition__Overlay Overlay__One"></div>
+      <div className="PageTransition__Overlay Overlay__Two"></div>
+      <div className="PageTransition__Overlay Overlay__Three"></div>
+      <div className="PageTransition__Overlay Overlay__Four"></div>
+      <div ref={gameRoot} className="GamePage">
+        <div className="Game__Wrapper">
+          <div className="InfoWrapper">
+            <InfoContainer isOpponent={false} gameState={gameState} />
+            <InfoContainer isOpponent={true} gameState={gameState} />
+          </div>
+          <GameBoard
+            gameState={gameState}
+            gameDispatch={gameDispatch}
+            connectionState={connectionState}
+          />
         </div>
-        <GameBoard
-          gameState={gameState}
-          gameDispatch={gameDispatch}
-          connectionState={connectionState}
-        />
+        {gameState.gameStatusOn && gameState.gameResult !== null && (
+          <GameResult result={gameState.gameResult} />
+        )}
       </div>
-      {gameState.gameStatusOn && gameState.gameResult !== null && (
-        <GameResult result={gameState.gameResult} />
-      )}
     </div>
   );
 }

@@ -23,20 +23,22 @@ export default function YourIdComponent({
             ? "Generating id..."
             : connectionState.myId}
         </span>
-        <button
-          onClick={() => navigator.clipboard.writeText(connectionState.myId)}
-          className="YourId__Button"
-        >
-          <CopyId />
-        </button>
-        <button
-          className="YourId__Button"
-          onClick={() =>
-            connectionDispatch({ type: "SET_PEER", payload: new Peer() })
-          }
-        >
-          <CycleArrow />
-        </button>
+        <div className="YourId__ButtonContainer">
+          <button
+            onClick={() => navigator.clipboard.writeText(connectionState.myId)}
+            className="YourId__Button"
+          >
+            <CopyId />
+          </button>
+          <button
+            className="YourId__Button"
+            onClick={() =>
+              connectionDispatch({ type: "SET_PEER", payload: new Peer() })
+            }
+          >
+            <CycleArrow />
+          </button>
+        </div>
       </div>
     </div>
   );

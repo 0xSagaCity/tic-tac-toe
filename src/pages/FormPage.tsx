@@ -28,82 +28,30 @@ export function ReceiveChallenge({
     gsap.fromTo(
       ".Sphere__Layer",
       {
-        scale: 0,
+        opacity: 1,
+        scale: 0.5,
       },
       {
+        opacity: 0,
         scale: 1,
-        duration: 1,
-        stagger: 0.2,
-        ease: "expo.easeInOut",
+        duration: 1.6,
+        repeat: -1,
+        ease: "expo.easIneOut",
       }
     );
   }, []);
 
   return (
     <div className="ReceiveChallengeContainer">
-      <div className="Sphere__LayerOne Sphere__Layer"></div>
-      <div className="Sphere__LayerTwo Sphere__Layer"></div>
-      <div className="Sphere__LayerFinal">WAITING</div>
+      <div className="Indicator__Component">
+        <div className="Sphere__LayerOne Sphere__Layer"></div>
+        <div className="Sphere__LayerTwo Sphere__Layer"></div>
+        <div className="Sphere__LayerFinal">WAITING</div>
+      </div>
       <YourIdComponent
         connectionState={connectionState}
         connectionDispatch={connectionDispatch}
       />
-    </div>
-  );
-}
-
-export function ChallengeOptions({}) {
-  const navigate = useNavigate();
-  const optionsRoot = useRef(null);
-  const ctx = gsap.context(() => {});
-
-  useLayoutEffect(() => {
-    ctx.add((context: any) => {
-      context.add("hoverExpand", () => {
-        gsap.to(".SendButton .Button__Layer", {
-          scale: 2,
-          stagger: -0.4,
-          repeat: -1,
-          yoyo: true,
-          ease: "expo.easeInOut",
-        });
-      });
-    }, optionsRoot);
-    return () => ctx.revert();
-  }, []);
-
-  function onMouseEnter() {
-    ctx.hoverExpand();
-  }
-
-  function onMouseLeave() {
-    ctx.revert();
-  }
-
-  return (
-    <div className="ChallengeOptions__Container" ref={optionsRoot}>
-      <div className="SendButton ChallengeButton__Container">
-        <div className="Button__Layer Layer__One"></div>
-        <div className="Button__Layer Layer__Two"></div>
-        <button
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          onClick={() => navigate("/connection/send")}
-          className="ChallengeButton"
-        >
-          SEND
-        </button>
-      </div>
-      <div className="ReceiveButton ChallengeButton__Container">
-        <div className="Button__Layer Layer__One"></div>
-        <div className="Button__Layer Layer__Two"></div>
-        <button
-          onClick={() => navigate("/connection/receive")}
-          className="ChallengeButton"
-        >
-          RECEIVE
-        </button>
-      </div>
     </div>
   );
 }

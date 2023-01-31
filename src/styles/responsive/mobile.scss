@@ -2,7 +2,7 @@
   /* Home Page */
   .HomePage {
     padding-block-start: 4rem;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 2rem;
   }
 
@@ -20,12 +20,11 @@
       align-self: flex-start;
       font-size: 12px;
     }
-  }
 
-  .HomePageBottom {
     .PlayButton {
+      border-radius: 2.2rem;
       &__Text {
-        font-size: $fs-large;
+        font-size: $fs-small;
       }
     }
   }
@@ -129,6 +128,10 @@
     .InfoContainer {
       padding: 0;
     }
+
+    .GameResult h2 {
+      font-size: $fs-large !important;
+    }
   }
 }
 
@@ -138,6 +141,17 @@
     justify-content: space-between;
     .Step {
       width: max-content;
+    }
+  }
+
+  .ReceiveChallengeContainer {
+    justify-content: center;
+  }
+
+  .YourId {
+    flex-direction: column;
+    &Inner__Wrapper {
+      flex-direction: column;
     }
   }
 
@@ -167,24 +181,22 @@
   .HomePage {
     padding-block: 2rem;
     gap: 2rem;
-    justify-content: center;
   }
 
   .HomePageTop {
     padding-block-end: 0;
-  }
-
-  .HomePageBottom {
-    flex-grow: 0;
+    .ButtonContainer {
+      gap: 2rem;
+      .PlayButton {
+        border-radius: 1.4rem;
+        padding: 1rem 2rem;
+      }
+    }
   }
 
   /* Form Page */
   .FormPageTop {
     padding-inline: 24px;
-    .YourId {
-      flex-direction: column;
-      align-items: flex-start;
-    }
 
     .FormDialog__FormEle .FormContainer__Options .OptionEle {
       height: 6rem;
@@ -212,6 +224,10 @@
   .GamePage {
     .InfoContainer .SideChar {
       font-size: $fs-base;
+    }
+
+    .GameResult h2 {
+      font-size: $fs-base !important;
     }
 
     .GameBoard {
@@ -246,11 +262,14 @@
       }
 
       .YourId {
-        padding-inline: 8px;
+        padding-inline: 4px;
         padding-block: 1rem;
 
         &Inner__Wrapper {
-          gap: 4px;
+          .YourId__Text {
+            font-size: 0.8rem;
+            padding-inline: 4px;
+          }
         }
       }
 

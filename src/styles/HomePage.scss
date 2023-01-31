@@ -2,32 +2,33 @@
 
 .HomePage {
   min-height: 100vh;
+  padding-block: 6rem 8rem;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 4rem;
-  padding-block: 6rem 2rem;
+  justify-content: center;
   position: relative;
   margin-inline: auto;
   background: $base-background-color;
-  overflow: hidden;
+  position: relative;
 
   .Circle {
     top: 25%;
     right: 30%;
+    z-index: 1;
   }
 
   .Square {
     top: 50%;
     right: 60%;
+    z-index: 1;
   }
 }
 
 .HomePageTop {
-  align-self: center;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   max-width: 2000px;
+  z-index: 3;
 
   &__Title {
     text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
@@ -43,33 +44,26 @@
   }
 }
 
-.HomePageBottom {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  max-height: 42rem;
-}
-
 .PlayButton {
   all: unset;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 360px;
-  width: 360px;
-  border-radius: 50%;
+  padding: 2rem 3rem;
+  border-radius: 2.6rem;
   cursor: pointer;
   background: $dark-gradient;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-    inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+  box-shadow: 10px 10px 20px rgba(0, 0, 200, 0.4),
+    inset -16px -16px 32px rgba(0, 21, 100, 0.6),
     inset 16px 16px 32px rgba(255, 255, 255, 0.5);
 
   &__Text {
     font-family: $work-sans;
-    font-size: $fs-large;
+    font-size: $fs-base;
     font-weight: 700;
     color: white;
   }
+}
+
+.ButtonContainer {
+  margin-block-start: 6rem;
+  display: flex;
+  gap: 4rem;
 }
