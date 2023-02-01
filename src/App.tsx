@@ -54,12 +54,16 @@ function App(): JSX.Element {
             gameDispatch({ type: "ADD_OP_MOVE", payload: data.PAYLOAD });
             gameDispatch({ type: "GAME_ADD_OP", payload: data.PAYLOAD });
             gameDispatch({ type: "SET_TURN", payload: true });
+          } else if (data.HEAD === "GAME") {
+            !gameState.gameStatusOn &&
+              connectionState.connection?.send({ HEAD: "GAME", PAYLOAD: "0" });
+            gameDispatch({ type: "GAME_ON", payload: true });
           }
         } else {
           console.log("BAD DATA was sent!");
         }
       });
-  }, [connectionState.connection]);
+  }, [connectionState.connection, gameState.gameStatusOn]);
 
   useEffect(() => {
     WINNING_STATES.forEach((winningState) => {
@@ -144,6 +148,7 @@ function App(): JSX.Element {
                 gameState={gameState}
                 gameDispatch={gameDispatch}
                 connectionState={connectionState}
+                connectionDipatch={connectionDispatch}
               />
             </TransitionComponent>
           }

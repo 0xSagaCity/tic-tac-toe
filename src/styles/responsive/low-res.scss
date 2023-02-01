@@ -40,9 +40,6 @@
     .InfoContainer {
       padding-inline: 1rem;
       padding-block-start: 0;
-      .SideChar {
-        font-size: $fs-large;
-      }
     }
   }
 }
@@ -81,7 +78,7 @@
   }
 
   .FormDialog {
-    margin-block-start: 2rem;
+    margin-block-start: 4rem;
     padding-block-end: 2rem;
   }
 

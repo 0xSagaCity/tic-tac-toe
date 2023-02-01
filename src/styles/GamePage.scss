@@ -25,39 +25,19 @@
   }
 
   .InfoContainer {
+    width: 100%;
+    height: 6rem;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    padding-inline: 2rem;
-    padding-block: 1rem;
     border-radius: 2rem;
+    font-size: $fs-base;
+    border: 4px solid $base-accent-light;
 
-    .SideChar {
-      font-size: $fs-larger;
-      background: $light-gradient;
-      background-clip: text;
-    }
-
-    .SideStatus {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      align-items: center;
-
-      &__Indicator {
-        height: 12px;
-        width: 12px;
-        border-radius: 50%;
-      }
-
-      .Indicator__Green {
-        background: green;
-      }
-
-      .Indicator__Red {
-        background: red;
-      }
+    .InfoText {
+      font-family: $work-sans;
+      font-weight: 800;
+      color: $light-text-color;
     }
   }
 
@@ -101,13 +81,33 @@
     left: 0;
     height: 100%;
     width: 100%;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     font-family: $work-sans;
     font-size: $fs-large;
     font-weight: 800;
     color: $base-text-color;
     background-color: $base-background-color;
     overflow: none;
+    word-spacing: 10px;
+
+    .ResetButton {
+      border: none;
+      background: none;
+      padding: 1rem 3rem;
+      font-family: $work-sans;
+      font-size: $fs-base;
+      color: $base-text-color;
+      border: 2px solid $base-accent-light;
+      border-radius: 100rem;
+      cursor: pointer;
+
+      &:hover {
+        border: 2px solid #0026ff;
+      }
+    }
   }
 }

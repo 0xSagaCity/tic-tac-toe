@@ -6,47 +6,50 @@ export default function gameReducer(
 ): GameStateType {
   let newState = state;
   switch (action.type) {
+    case "RESET":
+			newState = {
+			isX: false,
+			isMyTurn: false,
+			gameResult: null,
+			moveStatus: "Waiting...",
+			gameStatusOn: false,
+			myGameState: [],
+			opponentGameState: [],
+			currentGameState: Array(9).fill(null),
+		}
+      return newState;
     case "GAME_ON":
-      newState = { ...newState, gameStatusOn: action.payload };
-      break;
+      return (newState = { ...newState, gameStatusOn: action.payload });
     case "SET_ASX":
-      newState = { ...newState, isX: action.payload };
-      break;
+      return (newState = { ...newState, isX: action.payload });
     case "SET_TURN":
-      newState = { ...newState, isMyTurn: action.payload };
-      break;
+      return (newState = { ...newState, isMyTurn: action.payload });
     case "ADD_MY_MOVE":
       const newMyCurrentGameState = newState.currentGameState;
       newMyCurrentGameState[action.payload] = newState.isX ? "X" : "O";
-      newState = {
+      return (newState = {
         ...newState,
         currentGameState: newMyCurrentGameState,
-      };
-      break;
+      });
     case "ADD_OP_MOVE":
       const newOpCurrentGameState = newState.currentGameState;
       newOpCurrentGameState[action.payload] = newState.isX ? "O" : "X";
-      newState = {
+      return (newState = {
         ...newState,
         currentGameState: newOpCurrentGameState,
-      };
-      break;
+      });
     case "GAME_ADD_MY":
-      newState = {
+      return (newState = {
         ...newState,
         myGameState: newState.myGameState.concat(action.payload),
-      };
-      break;
+      });
     case "GAME_ADD_OP":
-      newState = {
+      return (newState = {
         ...newState,
         opponentGameState: newState.opponentGameState.concat(action.payload),
-      };
-      break;
+      });
     case "SET_RESULT":
-      newState = { ...newState, gameResult: action.payload };
-      break;
+      return (newState = { ...newState, gameResult: action.payload });
   }
-
   return newState;
 }

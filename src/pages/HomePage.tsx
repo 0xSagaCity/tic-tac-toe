@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { ExpoScaleEase } from "gsap/EasePack";
 gsap.registerPlugin(ExpoScaleEase);
 
-export default function HomePage({}) {
+export default function HomePage() {
   const navigate = useNavigate();
   let ctx = gsap.context(() => {});
   const homeRoot = useRef(null);
@@ -45,7 +45,7 @@ export default function HomePage({}) {
       });
     }, homeRoot);
     return () => ctx.revert();
-  }, []);
+  }, [ctx]);
 
   function onMouseEnter() {
     gsap.to(".PlayButton", {
@@ -108,7 +108,7 @@ export default function HomePage({}) {
               onClick={() => onClick(() => navigate("/connection/send"))}
               className="PlayButton SendButton"
             >
-              <span className="PlayButton__Text">Send</span>
+              <span className="PlayButton__Text GradientText">Send</span>
             </button>
             <button
               onMouseEnter={onMouseEnter}
@@ -116,7 +116,7 @@ export default function HomePage({}) {
               onClick={() => onClick(() => navigate("/connection/receive"))}
               className="PlayButton ReceiveButton"
             >
-              <span className="PlayButton__Text">Receive</span>
+              <span className="PlayButton__Text GradientText">Receive</span>
             </button>
           </div>
         </div>

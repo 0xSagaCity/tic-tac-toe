@@ -31,26 +31,26 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 200%;
-  height: 200%;
+  width: 150%;
+  height: 150%;
 }
 
 .Overlay__One {
-  top: 150%;
+  top: 120%;
   background: #0026ff;
 }
 
 .Overlay__Two {
-  top: 150%;
+  top: 120%;
   background: $base-text-color;
 }
 
 .Overlay__Three {
-  top: 150%;
+  top: 120%;
   background: #7e00cc;
 }
 
 .Overlay__Four {
-  top: 150%;
+  top: 120%;
   background: $base-background-color;
 }

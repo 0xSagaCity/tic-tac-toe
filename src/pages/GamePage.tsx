@@ -3,40 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { ConnectionStateType, GameStateType } from "../utils/types";
 import gsap from "gsap";
 
-function InfoContainer({
-  gameState,
-  isOpponent,
-}: {
-  gameState: GameStateType;
-  isOpponent: boolean;
-}) {
-  const indicatorClass = isOpponent
-    ? gameState.isMyTurn
-      ? "SideStatus__Indicator Indicator__Red"
-      : "SideStatus__Indicator Indicator__Green"
-    : gameState.isMyTurn
-    ? "SideStatus__Indicator Indicator__Green"
-    : "SideStatus__Indicator Indicator__Red";
-
+function InfoContainer({ gameState }: { gameState: GameStateType }) {
   return (
     <div className="InfoContainer">
-      <span className="SideChar GradientText">
-        {isOpponent ? (
-          <> {gameState.isX ? "O" : "X"} </>
-        ) : (
-          <> {gameState.isX ? "X" : "O"} </>
-        )}
-      </span>
-      <div className="SideStatus">
-        <div className={indicatorClass}></div>
-        <span className="SideStatus__Move SmallText">
-          {isOpponent ? (
-            <> {gameState.isMyTurn ? "Waiting..." : "Moving..."} </>
-          ) : (
-            <> {gameState.isMyTurn ? "Moving..." : "Waiting..."} </>
-          )}
-        </span>
-      </div>
+      {gameState.isMyTurn ? (
+        <span className="GradientText">Your move</span>
+      ) : (
+        <span className="InfoText">Waiting...</span>
+      )}
     </div>
   );
 }
@@ -109,7 +83,17 @@ function GameBoard({
   );
 }
 
-function GameResult({ result }: { result: "DRAW" | "WIN" | "LOSS" }) {
+function GameResult({
+  connectionState,
+  connectionDipatch,
+  gameDispatch,
+  result,
+}: {
+  connectionState: ConnectionStateType;
+  connectionDipatch: React.Dispatch<{ type: string; payload: any }>;
+  gameDispatch: React.Dispatch<{ type: string; payload: any }>;
+  result: "DRAW" | "WIN" | "LOSS";
+}) {
   useLayoutEffect(() => {
     gsap.fromTo(
       ".GameResult",
@@ -125,9 +109,19 @@ function GameResult({ result }: { result: "DRAW" | "WIN" | "LOSS" }) {
   }, []);
   return (
     <div className="GameResult">
-      {result === "DRAW" && <h2 className="GradientText"> GAME DRAWN</h2>}
-      {result === "WIN" && <h2 className="GradientText">GAME WIN</h2>}
-      {result === "LOSS" && <h2 className="GradientText"> GAME LOSS</h2>}
+      {result === "DRAW" && <h2 className="GradientText"> GAME DRAW</h2>}
+      {result === "WIN" && <h2 className="GradientText">GAME WON</h2>}
+      {result === "LOSS" && <h2 className="GradientText"> GAME LOST</h2>}
+      <button
+        onClick={() => {
+          connectionState.connection?.close();
+          connectionDipatch({ type: "RESET", payload: "" });
+          gameDispatch({ type: "RESET", payload: "" });
+        }}
+        className="ResetButton"
+      >
+        ↻ Another game
+      </button>
     </div>
   );
 }
@@ -136,10 +130,12 @@ export default function GamePage({
   gameState,
   gameDispatch,
   connectionState,
+  connectionDipatch,
 }: {
   gameState: GameStateType;
   gameDispatch: React.Dispatch<{ type: string; payload: any }>;
   connectionState: ConnectionStateType;
+  connectionDipatch: React.Dispatch<{ type: string; payload: any }>;
 }) {
   const navigate = useNavigate();
   const gameRoot = useRef(null);
@@ -148,7 +144,7 @@ export default function GamePage({
     if (!gameState.gameStatusOn && gameState.gameResult === null) {
       navigate("/");
     }
-  }, [gameState.gameStatusOn, gameState.gameResult]);
+  }, [gameState.gameStatusOn, gameState.gameResult, navigate]);
 
   return (
     <div className="Page">
@@ -159,8 +155,7 @@ export default function GamePage({
       <div ref={gameRoot} className="GamePage">
         <div className="Game__Wrapper">
           <div className="InfoWrapper">
-            <InfoContainer isOpponent={false} gameState={gameState} />
-            <InfoContainer isOpponent={true} gameState={gameState} />
+            <InfoContainer gameState={gameState} />
           </div>
           <GameBoard
             gameState={gameState}
@@ -169,7 +164,12 @@ export default function GamePage({
           />
         </div>
         {gameState.gameStatusOn && gameState.gameResult !== null && (
-          <GameResult result={gameState.gameResult} />
+          <GameResult
+            connectionState={connectionState}
+            connectionDipatch={connectionDipatch}
+            gameDispatch={gameDispatch}
+            result={gameState.gameResult}
+          />
         )}
       </div>
     </div>

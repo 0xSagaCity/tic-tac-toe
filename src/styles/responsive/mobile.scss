@@ -140,12 +140,11 @@
   .FormDialog__Steps {
     justify-content: space-between;
     .Step {
+      .Step__Number {
+        margin-inline: 0;
+      }
       width: max-content;
     }
-  }
-
-  .ReceiveChallengeContainer {
-    justify-content: center;
   }
 
   .YourId {
@@ -204,6 +203,10 @@
       font-size: $fs-large;
     }
 
+    .FormInner__Wrapper {
+      min-width: 280px;
+    }
+
     .Step--Inactive {
       padding-inline: 0;
       gap: 0;
@@ -218,6 +221,27 @@
     &__Title {
       font-size: $fs-large;
     }
+
+    .ReceiveChallengeContainer {
+      justify-content: center;
+      .Indicator__Component {
+        flex-grow: 0;
+        .Sphere__Layer {
+          &One {
+            width: 300px;
+          }
+
+          &Two {
+            width: 280px;
+          }
+
+          &Final {
+            width: 240px;
+            height: 240px;
+          }
+        }
+      }
+    }
   }
 
   /* Game Page */
@@ -227,7 +251,11 @@
     }
 
     .GameResult h2 {
-      font-size: $fs-base !important;
+      text-align: center;
+    }
+
+    .ResetButton {
+      font-size: $fs-small !important;
     }
 
     .GameBoard {
@@ -251,14 +279,15 @@
       .FormDialog {
         &__Steps {
           gap: 0;
-          .Step--Active {
-            padding-inline-start: 0;
-          }
         }
 
         .FormInner__Wrapper {
           padding: 24px;
         }
+      }
+
+      .FormDialog__FormEle .FormContainer__IdForm .IdForm__Ele input {
+        min-width: 240px;
       }
 
       .YourId {

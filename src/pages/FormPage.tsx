@@ -84,7 +84,7 @@ export default function FormPage({
       connectionState.isConnectionOn &&
       connectionState.mySideChar !== null
     ) {
-      gameDispatch({ type: "GAME_ON", payload: true });
+      connectionState.connection.send({ HEAD: "GAME", PAYLOAD: "0" });
     }
   }, [connectionState, gameDispatch]);
 

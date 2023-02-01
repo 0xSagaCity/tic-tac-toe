@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding-inline-start: 15%;
 
   &__Title {
     font-size: $fs-larger;
@@ -31,15 +32,17 @@
   background: $base-background-color;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
   gap: 6rem;
+  padding-block-end: 2rem;
   overflow: hidden;
 
   .Indicator__Component {
     position: relative;
     height: 300px;
     width: 300px;
+    flex-grow: 1;
     .Sphere__Layer {
       &One {
         position: absolute;
@@ -230,6 +233,7 @@
       align-items: center;
 
       .FormInner__Wrapper {
+        min-width: 320px;
         display: flex;
         flex-direction: column;
         gap: 4rem;

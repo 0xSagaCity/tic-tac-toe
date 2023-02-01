@@ -2,7 +2,7 @@
 
 .HomePage {
   min-height: 100vh;
-  padding-block: 6rem 8rem;
+  padding-block: 6rem 4rem;
   display: flex;
   justify-content: center;
   position: relative;
@@ -14,12 +14,14 @@
     top: 25%;
     right: 30%;
     z-index: 1;
+    opacity: 40%;
   }
 
   .Square {
     top: 50%;
     right: 60%;
     z-index: 1;
+    opacity: 40%;
   }
 }
 
@@ -46,24 +48,26 @@
 
 .PlayButton {
   all: unset;
-  padding: 2rem 3rem;
-  border-radius: 2.6rem;
+  padding: 2rem 4rem;
+  border-radius: 2.4rem;
+  display: grid;
+  place-items: center;
   cursor: pointer;
-  background: $dark-gradient;
-  box-shadow: 10px 10px 20px rgba(0, 0, 200, 0.4),
-    inset -16px -16px 32px rgba(0, 21, 100, 0.6),
-    inset 16px 16px 32px rgba(255, 255, 255, 0.5);
+  background: $white-gradient;
+  box-shadow: 10px 10px 20px #ccccff,
+    inset -16px -16px 32px rgba(0, 0, 200, 0.14),
+    inset 16px 16px 16px rgba(255, 255, 255, 1);
 
   &__Text {
     font-family: $work-sans;
     font-size: $fs-base;
     font-weight: 700;
-    color: white;
   }
 }
 
 .ButtonContainer {
   margin-block-start: 6rem;
   display: flex;
-  gap: 4rem;
+  justify-content: space-evenly;
+  gap: 2rem;
 }
