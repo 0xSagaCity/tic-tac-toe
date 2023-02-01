@@ -36,32 +36,9 @@ export default function HomePage() {
         duration: 0.6,
         ease: "expo.easeInOut",
       });
-      gsap.from(".PlayButton__Text", {
-        opacity: 0,
-        yPercent: 20,
-        duration: 0.4,
-        delay: 0.6,
-        ease: "expo.easeInOut",
-      });
     }, homeRoot);
     return () => ctx.revert();
-  }, [ctx]);
-
-  function onMouseEnter() {
-    gsap.to(".PlayButton", {
-      duration: 0.1,
-      scale: 1.1,
-      ease: "expo.easeInOut",
-    });
-  }
-
-  function onMouseLeave() {
-    gsap.to(".PlayButton", {
-      duration: 0.1,
-      scale: 1,
-      ease: "expo.easeInOut",
-    });
-  }
+  }, []);
 
   function onClick(next: gsap.Callback) {
     gsap
@@ -103,16 +80,12 @@ export default function HomePage() {
           </div>
           <div className="ButtonContainer">
             <button
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
               onClick={() => onClick(() => navigate("/connection/send"))}
               className="PlayButton SendButton"
             >
               <span className="PlayButton__Text GradientText">Send</span>
             </button>
             <button
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
               onClick={() => onClick(() => navigate("/connection/receive"))}
               className="PlayButton ReceiveButton"
             >
