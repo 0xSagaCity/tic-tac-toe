@@ -1,30 +1,44 @@
 @media (max-width: 730px) {
   /* Home Page */
   .HomePage {
-    padding-block-start: 4rem;
+    padding-block-start: 2rem;
     justify-content: center;
     gap: 2rem;
   }
 
   .HomePageTop {
-    padding-inline: 24px;
     padding-block-end: 4rem;
     gap: 1rem;
 
-    &__Title {
-      align-self: flex-start;
-      font-size: $fs-large;
+    .TextContainer {
+      .Circle,
+      .Square {
+        display: none;
+      }
+
+      .HomePageTop__Title {
+        margin-inline: auto;
+        align-self: flex-start;
+        font-size: $fs-large;
+      }
+
+      .HomePageTop__Para {
+        margin-inline: auto;
+        max-width: 24rem;
+        align-self: flex-start;
+      }
     }
 
-    &__Para {
-      align-self: flex-start;
-      font-size: 12px;
-    }
-
-    .PlayButton {
-      border-radius: 2.2rem;
-      &__Text {
-        font-size: $fs-small;
+    .ButtonContainer {
+      height: max-content;
+      justify-content: center;
+      .PlayButton {
+        aspect-ratio: auto;
+        min-height: 0 !important;
+        padding: 2rem 3rem;
+        background: none;
+        box-shadow: none;
+        border: 2px solid #0026ff;
       }
     }
   }
@@ -80,8 +94,7 @@
       flex-direction: row;
 
       .Step {
-        min-width: 0;
-        width: 100%;
+        min-width: 0 !important;
         padding-inline-end: 1rem !important;
         padding-block: 8px;
 
@@ -136,6 +149,24 @@
 }
 
 @media (max-width: 540px) {
+  /* Home Page */
+  .HomePageTop {
+    .TextContainer {
+      .HomePageTop__Para {
+        font-size: 12px;
+      }
+    }
+
+    .ButtonContainer {
+      padding-inline: 2rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      .PlayButton {
+        padding: 1rem 2rem;
+      }
+    }
+  }
+
   /* Form Page */
   .FormDialog__Steps {
     justify-content: space-between;
@@ -178,19 +209,11 @@
 @media (max-width: 420px) {
   /* Home Page */
   .HomePage {
-    padding-block: 2rem;
     gap: 2rem;
   }
 
   .HomePageTop {
     padding-block-end: 0;
-    .ButtonContainer {
-      gap: 2rem;
-      .PlayButton {
-        border-radius: 1.4rem;
-        padding: 1rem 2rem;
-      }
-    }
   }
 
   /* Form Page */
@@ -274,13 +297,18 @@
   /* Form Page */
   .FormPage {
     .FormPageTop {
-      padding-inline: 12px;
-
       .FormDialog {
+        .FormContainer {
+          padding-inline: 0;
+        }
         &__Steps {
           gap: 0;
-        }
 
+          .Step__Text,
+          .Step__Number {
+            font-size: 14px;
+          }
+        }
         .FormInner__Wrapper {
           padding: 24px;
         }
@@ -303,7 +331,7 @@
       }
 
       &__Title {
-        font-size: $fs-large !important;
+        font-size: calc($fs-large - 1rem) !important;
       }
     }
   }
@@ -313,12 +341,5 @@
       grid-template-columns: repeat(3, max(4rem, 8vw));
       grid-template-rows: repeat(3, max(4rem, 8vw));
     }
-  }
-}
-
-@media (max-width: 340px) {
-  .FormPage .FormPageTop__Title {
-    font-size: 3rem !important;
-    width: 100%;
   }
 }

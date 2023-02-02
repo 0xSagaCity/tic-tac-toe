@@ -77,6 +77,8 @@ export default function HomePage() {
               simple controls and an intuitive interface. So, grab a friend and
               get ready to play Tic Tac Toe like never before!
             </p>
+            <Circle />
+            <Square />
           </div>
           <div className="ButtonContainer">
             <button
@@ -93,8 +95,6 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-        <Circle />
-        <Square />
       </div>
     </div>
   );

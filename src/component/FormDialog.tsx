@@ -121,7 +121,7 @@ function IdForm({
       <div className="FormInner__Wrapper">
         <div className="FormContainer__IdForm">
           <label className="IdForm__Ele">
-            Opponent Id
+            <span>Opponent Id</span>
             <input
               type="text"
               value={opponentId}

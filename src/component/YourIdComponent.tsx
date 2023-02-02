@@ -4,6 +4,7 @@ import Peer from "peerjs";
 import { useEffect, useState } from "react";
 import CycleArrow from "../svg/CycleArrow";
 import Tick from "../svg/Tick";
+import gsap from "gsap";
 
 export default function YourIdComponent({
   connectionState,
@@ -15,6 +16,20 @@ export default function YourIdComponent({
     connectionDispatch({ type: "SET_MID", payload: "" });
     connectionDispatch({ type: "SET_PEER", payload: new Peer() });
   }, [connectionDispatch]);
+
+  function rotateIcon() {
+    gsap.fromTo(
+      ".NewId",
+      {
+        rotate: 0,
+        transformOrigin: "center",
+      },
+      {
+        rotate: -360,
+        duration: 0.4,
+      }
+    );
+  }
 
   return (
     <div className="YourId">
@@ -37,8 +52,9 @@ export default function YourIdComponent({
             {copied ? <Tick /> : <CopyId />}
           </button>
           <button
-            className="YourId__Button"
+            className="YourId__Button NewId"
             onClick={() => {
+              rotateIcon();
               setCopied(false);
               connectionDispatch({ type: "SET_PEER", payload: new Peer() });
             }}

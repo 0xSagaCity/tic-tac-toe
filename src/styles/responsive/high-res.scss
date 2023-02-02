@@ -1,13 +1,59 @@
-@media (min-width: 2460px) {
+@media (min-width: 2560px) {
   /* Home Page */
+  .HomePageTop__Title {
+    font-size: $fs-mega;
+  }
+
   .HomePageTop__Para {
     font-size: $fs-base;
     max-width: 54rem;
   }
 
   .PlayButton {
+    height: 420px;
     &__Text {
       font-size: $fs-large;
+    }
+  }
+
+  /* Form Page */
+  .FormPageTop__Title {
+    font-size: $fs-largest !important;
+  }
+
+  .FormDialog {
+    width: 58rem;
+    padding-inline: 4rem;
+    padding-block: 3rem 6rem;
+    .Step {
+      padding-inline-end: 2rem;
+    }
+
+    .Step__Text,
+    .Step__Number,
+    .IdForm__Ele,
+    .IdForm__Ele input {
+      font-size: $fs-base !important;
+    }
+
+    .IdForm__Ele input {
+      min-width: none !important;
+      width: 100% !important;
+    }
+
+    .Step__Background {
+      width: 100%;
+    }
+
+    .FormContainer__Button {
+      font-size: $fs-base;
+    }
+
+    .FormDialog__FormEle .FormContainer__Options .OptionEle {
+      height: 12rem;
+      width: 12rem;
+      font-size: $fs-largest;
+      border-radius: 3.4rem;
     }
   }
 

@@ -6,7 +6,8 @@ $base-accent-light: #d2d6fb;
 
 $dark-gradient: linear-gradient(296deg, #0026ff 13%, #7e00cc 74%);
 $transparent-gradient: linear-gradient(296deg, #0026ff11 13%, #7e00cc11 74%);
-$light-gradient: linear-gradient(296deg, #cbd1ef 13%, #dbe1ff 100%);
+$light-gradient: linear-gradient(296deg, #eeeeff 13%, #f3f7ff 100%);
+$button-gradient: linear-gradient(296deg, #dbe1ff 13%, #ffffff 100%);
 $white-gradient: linear-gradient(142deg, #ffffff 0%, #eeffff 100%);
 
 $work-sans: "Work Sans", sans-serif;
@@ -17,3 +18,4 @@ $fs-base: 1.618rem;
 $fs-large: 4.236rem;
 $fs-larger: 6.854rem;
 $fs-largest: 11.089rem;
+$fs-mega: 17.942rem;
