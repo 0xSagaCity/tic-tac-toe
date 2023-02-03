@@ -94,10 +94,11 @@ export default function FormPage({
 
   return (
     <div className="Page">
-      <div className="PageTransition__Overlay Overlay__One"></div>
-      <div className="PageTransition__Overlay Overlay__Two"></div>
-      <div className="PageTransition__Overlay Overlay__Three"></div>
-      <div className="PageTransition__Overlay Overlay__Four"></div>
+      <div className="ExitTransition__Overlay Overlay__One"></div>
+      <div className="ExitTransition__Overlay Overlay__Two"></div>
+      <div className="ExitTransition__Overlay Overlay__Three"></div>
+      <div className="ExitTransition__Overlay Overlay__Four"></div>
+      <div className="EntryTransition__Overlay Overlay__Five"></div>
       <div ref={formRoot} className="FormPage">
         <div className="FormPageTop">
           <Outlet />

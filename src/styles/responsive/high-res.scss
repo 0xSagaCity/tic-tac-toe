@@ -22,9 +22,21 @@
   }
 
   .FormDialog {
-    width: 58rem;
+    width: 64rem;
+    min-height: 31rem;
+    max-width: none;
     padding-inline: 4rem;
     padding-block: 3rem 6rem;
+    gap: 4rem;
+
+    &__FormEle .FormContainer__IdForm .IdForm__Ele span {
+      font-size: $fs-base;
+    }
+
+    &__Steps {
+      width: 40%;
+    }
+
     .Step {
       padding-inline-end: 2rem;
     }
@@ -45,8 +57,16 @@
       width: 100%;
     }
 
+    .FormContainer {
+      padding-block-start: 12px;
+    }
+
     .FormContainer__Button {
       font-size: $fs-base;
+    }
+
+    .FormDialog__FormEle {
+      width: 60%;
     }
 
     .FormDialog__FormEle .FormContainer__Options .OptionEle {

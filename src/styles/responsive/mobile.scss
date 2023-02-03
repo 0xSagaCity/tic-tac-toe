@@ -33,12 +33,13 @@
       height: max-content;
       justify-content: center;
       .PlayButton {
+        min-width: 100px;
         aspect-ratio: auto;
         min-height: 0 !important;
-        padding: 2rem 3rem;
-        background: none;
-        box-shadow: none;
-        border: 2px solid #0026ff;
+        padding: 1.6rem 3rem;
+        box-shadow: 10px 10px 20px #ccccff,
+          inset -8px -8px 16px rgba(0, 0, 200, 0.14),
+          inset 8px 8px 16px rgba(255, 255, 255, 1);
       }
     }
   }
@@ -69,6 +70,7 @@
       .FormContainer {
         width: 100%;
         display: block;
+        padding-inline: 0;
 
         .FormInner__Wrapper {
           width: 100%;
@@ -161,13 +163,14 @@
       padding-inline: 2rem;
       flex-wrap: wrap;
       gap: 2rem;
-      .PlayButton {
-        padding: 1rem 2rem;
-      }
     }
   }
 
   /* Form Page */
+  .FormDialog__FormEle .FormContainer__IdForm .IdForm__Ele input {
+    min-width: 0;
+  }
+
   .FormDialog__Steps {
     justify-content: space-between;
     .Step {
@@ -176,6 +179,10 @@
       }
       width: max-content;
     }
+  }
+
+  .FormDialog__FormEle .FormContainer .FormInner__Wrapper {
+    justify-content: center;
   }
 
   .YourId {
@@ -227,7 +234,12 @@
     }
 
     .FormInner__Wrapper {
-      min-width: 280px;
+      border-radius: 2.4rem !important;
+      min-width: 280px !important;
+      min-height: 280px !important;
+      span {
+        min-height: 0 !important;
+      }
     }
 
     .Step--Inactive {
@@ -315,7 +327,9 @@
       }
 
       .FormDialog__FormEle .FormContainer__IdForm .IdForm__Ele input {
-        min-width: 240px;
+        padding: 12px 24px;
+        min-width: 0;
+        width: 100%;
       }
 
       .YourId {

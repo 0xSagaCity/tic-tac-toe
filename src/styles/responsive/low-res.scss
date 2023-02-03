@@ -9,6 +9,7 @@
   .FormPageTop {
     padding-inline-start: 4rem;
   }
+
   .YourId {
     span {
       font-size: $fs-small;
@@ -72,13 +73,6 @@
     .FormDialog__Steps .Step {
       min-width: 14rem;
     }
-    .FormContainer {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .FormInner__Wrapper {
-      width: max-content;
-    }
   }
 }
 
@@ -97,6 +91,7 @@
 
   .FormContainer {
     .FormInner__Wrapper {
+      min-width: 320px !important;
       .FormContainer__Options {
         gap: 2rem;
       }

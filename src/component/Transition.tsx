@@ -5,31 +5,50 @@ import { SwitchTransition, Transition } from "react-transition-group";
 const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const entryAnimation = () => {
-    gsap.set(".Page", { opacity: 0.4, yPercent: 10 });
+    gsap.set(".Page", { yPercent: 10 });
+    gsap.set(".Overlay__Five", { rotate: 10 });
+    gsap.set(".EntryTransition__Overlay", {
+      zIndex: 12,
+      display: "initial",
+      yPercent: "-100",
+    });
     gsap
       .timeline({ paused: true })
-      .to(".Page", {
-        opacity: 1,
-        yPercent: 0,
-        duration: 0.2,
-        ease: "expo.easeInOut",
-      })
+      .to(
+        ".EntryTransition__Overlay",
+        {
+          yPercent: "-200",
+          rotate: 0,
+          duration: 0.8,
+          ease: "expo.easeOut",
+        },
+        0
+      )
+      .to(
+        ".Page",
+        {
+          yPercent: 0,
+          duration: 0.8,
+          ease: "expo.easeInOut",
+        },
+        "<"
+      )
       .play();
   };
 
   const exitAnimation = () => {
-    gsap.set(".PageTransition__Overlay", { zIndex: 12, display: "initial" });
-    gsap.set(".Overlay__One", { rotate: -6 });
-    gsap.set(".Overlay__Two", { rotate: 6 });
-    gsap.set(".Overlay__Three", { rotate: -6 });
-    gsap.set(".Overlay__Four", { rotate: 6 });
+    gsap.set(".ExitTransition__Overlay", { zIndex: 12, display: "initial" });
+    gsap.set(".Overlay__One", { rotate: -10 });
+    gsap.set(".Overlay__Two", { rotate: 10 });
+    gsap.set(".Overlay__Three", { rotate: -10 });
+    gsap.set(".Overlay__Four", { rotate: 10 });
     gsap
       .timeline({ paused: true })
-      .to(".PageTransition__Overlay", {
-        top: "-200",
+      .to(".ExitTransition__Overlay", {
+        yPercent: "-100",
         rotate: 0,
-        duration: 1.2,
-        stagger: 0.2,
+        duration: 0.8,
+        stagger: 0.16,
         ease: "expo.easeOut",
       })
       .play();
@@ -41,9 +60,9 @@ const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
         key={location.pathname}
         appear={true}
         timeout={{
-          appear: 100,
-          enter: 200,
-          exit: 1800,
+          appear: 0,
+          enter: 800,
+          exit: 1240,
         }}
         unmountOnExit
         onEnter={entryAnimation}

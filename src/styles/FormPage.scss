@@ -91,10 +91,10 @@
         place-items: center;
         font-family: $work-sans;
         font-size: $fs-base;
-        font-weight: 800;
+        font-weight: 700;
         color: white;
         letter-spacing: 2px;
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+        box-shadow: 10px 10px 20px #ccccff,
           inset -16px -16px 32px rgba(0, 21, 171, 0.6),
           inset 16px 16px 32px rgba(255, 255, 255, 0.5);
       }
@@ -104,7 +104,7 @@
 
 /* FormPage */
 .YourId > span {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .YourId {
@@ -156,6 +156,7 @@
 
 .FormDialog {
   min-height: 24rem;
+  max-width: 48rem;
   background: $white-gradient;
   padding: 2rem;
   padding-inline-end: calc(2rem + 12px);
@@ -235,9 +236,12 @@
   &__FormEle {
     width: 70%;
     .FormContainer {
+      display: flex;
+      justify-content: flex-end;
       padding-inline: 1rem;
       .FormInner__Wrapper {
         min-width: 280px;
+        width: max-content;
         display: flex;
         flex-direction: column;
         gap: 4rem;
@@ -258,7 +262,7 @@
           justify-content: center;
           align-items: center;
           font-family: $work-sans;
-          font-weight: 800;
+          font-weight: 700;
           font-size: $fs-larger;
           color: white;
           text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
@@ -296,17 +300,11 @@
 
       &__IdForm {
         .IdForm__Ele input {
-          min-width: 280px;
+          width: 100%;
           padding: 18px 24px;
           border: 2px solid $base-accent-light;
           border-radius: 1rem;
           outline: none;
-        }
-
-        .IdForm__Ele span {
-          min-height: 64px;
-          display: flex;
-          align-items: center;
         }
 
         .IdForm__Ele span,
@@ -314,6 +312,14 @@
           font-family: $open-sans;
           font-size: $fs-small;
           color: $base-text-color;
+        }
+
+        .IdForm__Ele span {
+          font-family: $work-sans;
+          font-weight: 700;
+          min-height: 64px;
+          display: flex;
+          align-items: center;
         }
 
         .IdForm__Ele input:focus,
@@ -338,7 +344,7 @@
         color: $base-text-color;
         background: none;
         cursor: pointer;
-        transition: all 400ms ease-in;
+        transition: all 200ms ease-out;
       }
 
       &__Button:hover,

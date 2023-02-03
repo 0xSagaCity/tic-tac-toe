@@ -30,6 +30,13 @@ export default function HomePage() {
         stagger: 0.4,
         ease: "expo.easeInOut",
       });
+      gsap.to(".Polygon", {
+        y: "-20%",
+        duration: 2.5,
+        delay: 5,
+        repeat: -1,
+        yoyo: true,
+      });
       gsap.from(".PlayButton", {
         scale: 0,
         yPercent: 80,
@@ -40,15 +47,15 @@ export default function HomePage() {
     return () => ctx.revert();
   }, []);
 
-  function onClick(next: gsap.Callback) {
+  function onClick(buttonClass: string, next: gsap.Callback) {
     gsap
       .timeline({ paused: true })
-      .to(".PlayButton", {
+      .to(buttonClass, {
         duration: 0.1,
         scale: 0.8,
         ease: "expo.easeInOut",
       })
-      .to(".PlayButton", {
+      .to(buttonClass, {
         duration: 0.1,
         scale: 1,
         ease: "expo.easeInOut",
@@ -57,12 +64,29 @@ export default function HomePage() {
       .play();
   }
 
+  function onMouseEnter(buttonClass: string) {
+    gsap.to(buttonClass, {
+      scale: 1.1,
+      duration: 0.2,
+      ease: "power4.in",
+    });
+  }
+
+  function onMouseLeave(buttonClass: string) {
+    gsap.to(buttonClass, {
+      scale: 1,
+      duration: 0.2,
+      ease: "power4.Out",
+    });
+  }
+
   return (
     <div className="Page">
-      <div className="PageTransition__Overlay Overlay__One"></div>
-      <div className="PageTransition__Overlay Overlay__Two"></div>
-      <div className="PageTransition__Overlay Overlay__Three"></div>
-      <div className="PageTransition__Overlay Overlay__Four"></div>
+      <div className="ExitTransition__Overlay Overlay__One"></div>
+      <div className="ExitTransition__Overlay Overlay__Two"></div>
+      <div className="ExitTransition__Overlay Overlay__Three"></div>
+      <div className="ExitTransition__Overlay Overlay__Four"></div>
+      <div className="EntryTransition__Overlay Overlay__Five"></div>
       <div className="HomePage" ref={homeRoot}>
         <div className="HomePageTop">
           <div className="TextContainer">
@@ -82,13 +106,21 @@ export default function HomePage() {
           </div>
           <div className="ButtonContainer">
             <button
-              onClick={() => onClick(() => navigate("/connection/send"))}
+              onMouseEnter={() => onMouseEnter(".SendButton")}
+              onMouseLeave={() => onMouseLeave(".SendButton")}
+              onClick={() => {
+                onClick(".SendButton", () => navigate("/connection/send"));
+              }}
               className="PlayButton SendButton"
             >
               <span className="PlayButton__Text GradientText">Send</span>
             </button>
             <button
-              onClick={() => onClick(() => navigate("/connection/receive"))}
+              onMouseEnter={() => onMouseEnter(".ReceiveButton")}
+              onMouseLeave={() => onMouseLeave(".ReceiveButton")}
+              onClick={() =>
+                onClick(".ReceiveButton", () => navigate("/connection/receive"))
+              }
               className="PlayButton ReceiveButton"
             >
               <span className="PlayButton__Text GradientText">Receive</span>
