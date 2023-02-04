@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 
 import { gsap } from "gsap";
 import { ExpoScaleEase } from "gsap/EasePack";
+import { onClick, onMouseEnter, onMouseLeave } from "../utils/animations";
 gsap.registerPlugin(ExpoScaleEase);
 
 export default function HomePage() {
@@ -35,6 +36,7 @@ export default function HomePage() {
         duration: 2.5,
         delay: 5,
         repeat: -1,
+        stagger: 0.2,
         yoyo: true,
       });
       gsap.from(".PlayButton", {
@@ -46,39 +48,6 @@ export default function HomePage() {
     }, homeRoot);
     return () => ctx.revert();
   }, []);
-
-  function onClick(buttonClass: string, next: gsap.Callback) {
-    gsap
-      .timeline({ paused: true })
-      .to(buttonClass, {
-        duration: 0.1,
-        scale: 0.8,
-        ease: "expo.easeInOut",
-      })
-      .to(buttonClass, {
-        duration: 0.1,
-        scale: 1,
-        ease: "expo.easeInOut",
-        onComplete: next,
-      })
-      .play();
-  }
-
-  function onMouseEnter(buttonClass: string) {
-    gsap.to(buttonClass, {
-      scale: 1.1,
-      duration: 0.2,
-      ease: "power4.in",
-    });
-  }
-
-  function onMouseLeave(buttonClass: string) {
-    gsap.to(buttonClass, {
-      scale: 1,
-      duration: 0.2,
-      ease: "power4.Out",
-    });
-  }
 
   return (
     <div className="Page">

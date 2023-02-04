@@ -40,6 +40,7 @@
   .GamePage {
     gap: 1rem;
     .GameBoard {
+      border-radius: 4.2rem;
       grid-template-columns: repeat(3, max(6rem, 8vw));
       grid-template-rows: repeat(3, max(6rem, 8vw));
       .GameCell {
@@ -48,8 +49,7 @@
       }
     }
     .InfoContainer {
-      padding-inline: 1rem;
-      padding-block-start: 0;
+      padding: 1rem 2rem;
     }
   }
 }
@@ -74,6 +74,13 @@
       min-width: 14rem;
     }
   }
+
+  /* Game Page */
+  .GamePage {
+    .GameBoard {
+      border-radius: 3.6rem;
+    }
+  }
 }
 
 @media (max-width: 1020px) {
@@ -91,7 +98,6 @@
 
   .FormContainer {
     .FormInner__Wrapper {
-      min-width: 320px !important;
       .FormContainer__Options {
         gap: 2rem;
       }

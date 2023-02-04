@@ -101,6 +101,7 @@ function IdForm({
   connectionDispatch: React.Dispatch<{ type: string; payload: any }>;
 }) {
   const [opponentId, setOpponentId] = useState("");
+  const [buttonText, setButtonText] = useState("Connect");
 
   function sendChallenge() {
     const connection = connectionState.peer?.connect(opponentId);
@@ -114,6 +115,10 @@ function IdForm({
         payload: connectionState.mySideChar,
       });
     }, 1000);
+    setButtonText("Connecting");
+    setTimeout(() => {
+      setButtonText("Connect");
+    }, 2000);
   }
 
   return (
@@ -131,7 +136,7 @@ function IdForm({
           </label>
         </div>
         <button onClick={sendChallenge} className="FormContainer__Button">
-          Connect
+          {buttonText}
         </button>
       </div>
     </div>

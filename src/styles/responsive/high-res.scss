@@ -84,6 +84,12 @@
       padding-inline: 4rem;
     }
 
+    .GameResult {
+      h2 {
+        font-size: $fs-largest;
+      }
+    }
+
     .GameBoard {
       grid-template-columns: repeat(3, max(14rem, 8vw));
       grid-template-rows: repeat(3, max(14rem, 8vw));

@@ -138,14 +138,12 @@
 
   /* Game Page */
   .GamePage {
-    padding: 24px;
-
-    .InfoContainer {
-      padding: 0;
-    }
-
     .GameResult h2 {
       font-size: $fs-large !important;
+    }
+
+    .ResetButton {
+      font-size: $fs-small !important;
     }
   }
 }
@@ -195,12 +193,26 @@
   /* Game Page */
   .GamePage {
     padding: 0;
+    .GameResult h2 {
+      text-align: center;
+    }
+
+    .ResultButton__Container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem !important;
+    }
+
     .InfoWrapper {
       gap: 0;
+
       .InfoContainer {
+        border-radius: 1rem;
+        font-size: $fs-small;
         padding-inline: 12px;
       }
     }
+
     .GameBoard {
       padding: 1.4rem;
       grid-column-gap: 12px;
@@ -208,6 +220,7 @@
       border-radius: 3rem;
       .GameCell {
         border-radius: 2rem;
+        border: 2px solid $base-accent-light;
       }
     }
   }
@@ -281,24 +294,12 @@
 
   /* Game Page */
   .GamePage {
-    .InfoContainer .SideChar {
-      font-size: $fs-base;
-    }
-
-    .GameResult h2 {
-      text-align: center;
-    }
-
-    .ResetButton {
-      font-size: $fs-small !important;
-    }
-
     .GameBoard {
       grid-template-columns: repeat(3, max(5rem, 8vw));
       grid-template-rows: repeat(3, max(5rem, 8vw));
 
       .GameCell {
-        font-size: $fs-base;
+        font-size: 3rem;
         border-radius: 1.4rem;
       }
     }

@@ -6,7 +6,7 @@ const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const entryAnimation = () => {
     gsap.set(".Page", { yPercent: 10 });
-    gsap.set(".Overlay__Five", { rotate: 10 });
+    gsap.set(".Overlay__Five", { rotation: 10 });
     gsap.set(".EntryTransition__Overlay", {
       zIndex: 12,
       display: "initial",
@@ -18,9 +18,9 @@ const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
         ".EntryTransition__Overlay",
         {
           yPercent: "-200",
-          rotate: 0,
+          rotation: 0,
           duration: 0.8,
-          ease: "expo.easeOut",
+          ease: "expo.easeIn",
         },
         0
       )
@@ -28,7 +28,7 @@ const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
         ".Page",
         {
           yPercent: 0,
-          duration: 0.8,
+          duration: 0.4,
           ease: "expo.easeInOut",
         },
         "<"
@@ -38,15 +38,15 @@ const TransitionComponent = ({ children }: { children: React.ReactNode }) => {
 
   const exitAnimation = () => {
     gsap.set(".ExitTransition__Overlay", { zIndex: 12, display: "initial" });
-    gsap.set(".Overlay__One", { rotate: -10 });
-    gsap.set(".Overlay__Two", { rotate: 10 });
-    gsap.set(".Overlay__Three", { rotate: -10 });
-    gsap.set(".Overlay__Four", { rotate: 10 });
+    gsap.set(".Overlay__One", { rotation: -10 });
+    gsap.set(".Overlay__Two", { rotation: 10 });
+    gsap.set(".Overlay__Three", { rotation: -10 });
+    gsap.set(".Overlay__Four", { rotation: 10 });
     gsap
       .timeline({ paused: true })
       .to(".ExitTransition__Overlay", {
         yPercent: "-100",
-        rotate: 0,
+        rotation: 0,
         duration: 0.8,
         stagger: 0.16,
         ease: "expo.easeOut",

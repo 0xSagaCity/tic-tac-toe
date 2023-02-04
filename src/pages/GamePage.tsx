@@ -2,6 +2,7 @@ import { MouseEventHandler, useEffect, useLayoutEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ConnectionStateType, GameStateType } from "../utils/types";
 import gsap from "gsap";
+import { onClick, onMouseEnter, onMouseLeave } from "../utils/animations";
 
 function InfoContainer({ gameState }: { gameState: GameStateType }) {
   return (
@@ -107,21 +108,30 @@ function GameResult({
       }
     );
   }, []);
+
+  function callback() {
+    connectionState.connection?.close();
+    connectionDipatch({ type: "RESET", payload: "" });
+    gameDispatch({ type: "RESET", payload: "" });
+  }
+
   return (
     <div className="GameResult">
       {result === "DRAW" && <h2 className="GradientText"> GAME DRAW</h2>}
       {result === "WIN" && <h2 className="GradientText">GAME WON</h2>}
       {result === "LOSS" && <h2 className="GradientText"> GAME LOST</h2>}
-      <button
-        onClick={() => {
-          connectionState.connection?.close();
-          connectionDipatch({ type: "RESET", payload: "" });
-          gameDispatch({ type: "RESET", payload: "" });
-        }}
-        className="ResetButton"
-      >
-        ↻ Another game
-      </button>
+      <div className="ResultButton__Container">
+        <button
+          onClick={() => {
+            onClick(".ResetButton", callback);
+          }}
+          onMouseEnter={() => onMouseEnter(".ResetButton")}
+          onMouseLeave={() => onMouseLeave(".ResetButton")}
+          className="ResetButton"
+        >
+          ⚔ Another game
+        </button>
+      </div>
     </div>
   );
 }
