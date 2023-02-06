@@ -104,6 +104,7 @@
 
 /* FormPage */
 .YourId > span {
+  font-family: $work-sans;
   font-weight: 700;
 }
 
@@ -352,7 +353,7 @@
         background: $dark-gradient;
         color: white;
         transform: translateY(-4px);
-        box-shadow: 4px 4px 16px 8px rgba(40, 40, 200, 0.2);
+        box-shadow: 4px 4px 16px 8px rgba(40, 40, 200, 0.1);
       }
 
       &__Button:focus,

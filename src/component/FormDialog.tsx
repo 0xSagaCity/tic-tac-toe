@@ -57,7 +57,7 @@ function SideForm({
       .to(
         ".Option_Container--Unselected .OptionEle",
         {
-          background: "linear-gradient(296deg, #0026ff 13%, #7e00cc 74%)",
+          background: "linear-gradient(296deg, #0013ff 13%, #8349ff 74%)",
           duration: 0.4,
           ease: "expo.easeInOut",
           onComplete:
