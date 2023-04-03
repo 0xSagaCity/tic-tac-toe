@@ -1,390 +1,390 @@
 @import "./imports/variables";
 
 .FormPage {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding-block: 2rem;
-  overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-block: 2rem;
+    overflow: hidden;
 }
 
 .FormPageTop {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-inline-end: 1rem;
-  padding-inline-start: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-inline-end: 1rem;
+    padding-inline-start: 15%;
 
-  &__Title {
-    font-size: $fs-larger;
-    text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  }
+    &__Title {
+        font-size: $fs-larger;
+        text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
 }
 
 /* ReceivePage */
 .ReceiveChallengeContainer {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: $base-background-color;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 6rem;
-  padding-block-end: 2rem;
-  overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $base-background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6rem;
+    padding-block-end: 2rem;
+    overflow: hidden;
 
-  .Indicator__Component {
-    position: relative;
-    height: 300px;
-    width: 300px;
-    flex-grow: 1;
-    .Sphere__Layer {
-      &One {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 450px;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        background: $dark-gradient;
-        opacity: 20%;
-        transform: translate(-50%, -50%);
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-          inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-          inset 16px 16px 32px rgba(255, 255, 255, 0.9);
-      }
-
-      &Two {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 400px;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        background: $dark-gradient;
-        z-index: 1;
-        opacity: 30%;
-        transform: translate(-50%, -50%);
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-          inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-          inset 16px 16px 32px rgba(255, 255, 255, 0.9);
-      }
-
-      &Final {
-        position: absolute;
-        top: 50%;
-        left: 50%;
+    .Indicator__Component {
+        position: relative;
+        height: 300px;
         width: 300px;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        background: $dark-gradient;
-        z-index: 2;
-        opacity: 100%;
-        transform: translate(-50%, -50%);
-        display: grid;
-        place-items: center;
-        font-family: $work-sans;
-        font-size: $fs-base;
-        font-weight: 700;
-        color: white;
-        letter-spacing: 2px;
-        box-shadow: 10px 10px 20px #ccccff,
-          inset -16px -16px 32px rgba(0, 21, 171, 0.6),
-          inset 16px 16px 32px rgba(255, 255, 255, 0.5);
-      }
+        flex-grow: 1;
+        .Sphere__Layer {
+            &One {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 450px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background: $dark-gradient;
+                opacity: 20%;
+                transform: translate(-50%, -50%);
+                box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+                    inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+                    inset 16px 16px 32px rgba(255, 255, 255, 0.9);
+            }
+
+            &Two {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 400px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background: $dark-gradient;
+                z-index: 1;
+                opacity: 30%;
+                transform: translate(-50%, -50%);
+                box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+                    inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+                    inset 16px 16px 32px rgba(255, 255, 255, 0.9);
+            }
+
+            &Final {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 300px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background: $dark-gradient;
+                z-index: 2;
+                opacity: 100%;
+                transform: translate(-50%, -50%);
+                display: grid;
+                place-items: center;
+                font-family: $work-sans;
+                font-size: $fs-base;
+                font-weight: 700;
+                color: white;
+                letter-spacing: 2px;
+                box-shadow: 10px 10px 20px #ccccff,
+                    inset -16px -16px 32px rgba(0, 21, 171, 0.6),
+                    inset 16px 16px 32px rgba(255, 255, 255, 0.5);
+            }
+        }
     }
-  }
 }
 
 /* FormPage */
 .YourId > span {
-  font-family: $work-sans;
-  font-weight: 700;
+    font-family: $work-sans;
+    font-weight: 700;
 }
 
 .YourId {
-  width: max-content;
-  padding: 12px 32px;
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  border-radius: 1.4rem;
-  font-family: $open-sans;
-  font-size: $fs-small;
-  background: $transparent-gradient;
-  color: $base-text-color;
-
-  &Inner__Wrapper {
+    width: max-content;
+    padding: 12px 32px;
     display: flex;
-    align-items: center;
     gap: 24px;
-  }
+    align-items: center;
+    border-radius: 1.4rem;
+    font-family: $open-sans;
+    font-size: $fs-small;
+    background: $transparent-gradient;
+    color: $base-text-color;
 
-  &__Text {
-    padding: 4px 16px;
-    background-color: white;
-    border-radius: 0.6rem;
-  }
-
-  &__ButtonContainer {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  &__Button {
-    all: unset;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-
-    svg {
-      fill: $base-text-color;
+    &Inner__Wrapper {
+        display: flex;
+        align-items: center;
+        gap: 24px;
     }
 
-    .NewId__Icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    &__Text {
+        padding: 4px 16px;
+        background-color: white;
+        border-radius: 0.6rem;
     }
-  }
+
+    &__ButtonContainer {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    &__Button {
+        all: unset;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+
+        svg {
+            fill: $base-text-color;
+        }
+
+        .NewId__Icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }
 
 .FormDialog {
-  min-height: 24rem;
-  max-width: 48rem;
-  background: $white-gradient;
-  padding: 2rem;
-  padding-inline-end: calc(2rem + 12px);
-  padding-block-end: 4rem;
-  border-radius: 3rem;
-  margin-block-start: 5.75rem;
-  box-shadow: 16px 16px 32px rgba(200, 200, 255, 0.6),
-    inset -12px -12px 24px rgba(219, 225, 255, 0.8),
-    inset 16px 16px 32px #ffffff;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
-
-  &__Steps {
-    width: 30%;
-    list-style: none;
-    font-family: $open-sans;
-    font-size: $fs-small;
-    color: $base-text-color;
+    min-height: 24rem;
+    max-width: 48rem;
+    background: $white-gradient;
+    padding: 2rem;
+    padding-inline-end: calc(2rem + 12px);
+    padding-block-end: 4rem;
+    border-radius: 3rem;
+    margin-block-start: 5.75rem;
+    box-shadow: 16px 16px 32px rgba(200, 200, 255, 0.6),
+        inset -12px -12px 24px rgba(219, 225, 255, 0.8),
+        inset 16px 16px 32px #ffffff;
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
 
-    .Step {
-      min-width: 16rem;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 1rem;
-      position: relative;
-      overflow: hidden;
-
-      &__Background {
-        position: absolute;
-        height: 100%;
-        width: 90%;
-        left: 0;
-        z-index: 1;
-        border-radius: 1.2rem;
-      }
-
-      &--Active {
-        .Step__Background {
-          background-color: $base-background-color;
-        }
-        .Step__Number {
-          background-color: white;
-        }
-      }
-
-      &--Inactive {
-        color: $light-text-color;
-      }
-
-      &__Number {
-        font-family: $work-sans;
+    &__Steps {
+        width: 30%;
+        list-style: none;
+        font-family: $open-sans;
         font-size: $fs-small;
-        margin-inline-start: 12px;
-        padding-inline: 12px;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
-      }
-
-      &__Text {
-        z-index: 2;
-      }
-    }
-  }
-
-  &__FormEle {
-    width: 70%;
-    .FormContainer {
-      display: flex;
-      justify-content: flex-end;
-      padding-inline: 1rem;
-      .FormInner__Wrapper {
-        min-width: 320px;
-        width: max-content;
+        color: $base-text-color;
         display: flex;
         flex-direction: column;
-        gap: 4rem;
-      }
+        justify-content: space-between;
+        gap: 1rem;
 
-      &__Options {
-        display: flex;
-        gap: 4rem;
-        overflow: hidden;
+        .Step {
+            min-width: 16rem;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
 
-        .OptionEle {
-          height: 8rem;
-          width: 8rem;
-          max-width: 100%;
-          aspect-ratio: 1/1;
-          border-radius: 2rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-family: $work-sans;
-          font-weight: 700;
-          font-size: $fs-larger;
-          color: white;
-          text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
-          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-          cursor: pointer;
+            &__Background {
+                position: absolute;
+                height: 100%;
+                width: 90%;
+                left: 0;
+                z-index: 1;
+                border-radius: 1.2rem;
+            }
+
+            &--Active {
+                .Step__Background {
+                    background-color: $base-background-color;
+                }
+                .Step__Number {
+                    background-color: white;
+                }
+            }
+
+            &--Inactive {
+                color: $light-text-color;
+            }
+
+            &__Number {
+                font-family: $work-sans;
+                font-size: $fs-small;
+                margin-inline-start: 12px;
+                padding-inline: 12px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 2;
+            }
+
+            &__Text {
+                z-index: 2;
+            }
         }
-
-        .Option_Container--Unselected,
-        .Option_Container--Selected {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.6rem;
-        }
-
-        .Option_Container--Selected {
-          .SelectionBar {
-            height: 0.4rem;
-            width: 5rem;
-            background: $dark-gradient;
-            border-radius: 10rem;
-          }
-
-          .OptionEle {
-            background: $dark-gradient;
-          }
-        }
-
-        .Option_Container--Unselected {
-          .OptionEle {
-            background: $base-accent-light;
-          }
-        }
-      }
-
-      &__IdForm {
-        .IdForm__Ele input {
-          width: 100%;
-          padding: 18px 24px;
-          border: 2px solid $base-accent-light;
-          border-radius: 1rem;
-          outline: none;
-        }
-
-        .IdForm__Ele span,
-        .IdForm__Ele input {
-          font-family: $open-sans;
-          font-size: $fs-small;
-          color: $base-text-color;
-        }
-
-        .IdForm__Ele span {
-          font-family: $work-sans;
-          font-weight: 700;
-          min-height: 64px;
-          display: flex;
-          align-items: center;
-        }
-
-        .IdForm__Ele input:focus,
-        .IdForm__Ele input:focus-visible {
-          border: 2px solid #0026ff;
-        }
-
-        .IdForm__Ele {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-      }
-
-      &__Button {
-        padding: 1rem 2rem;
-        align-self: flex-start;
-        font-family: $work-sans;
-        font-size: $fs-small;
-        border: 2px solid $base-accent-light;
-        border-radius: 1.25rem;
-        color: $base-text-color;
-        background: none;
-        cursor: pointer;
-        transition: all 200ms ease-out;
-      }
-
-      &__Button:hover,
-      &__Button:focus {
-        background: $dark-gradient;
-        color: white;
-        transform: translateY(-4px);
-        box-shadow: 4px 4px 16px 8px rgba(40, 40, 200, 0.1);
-      }
-
-      &__Button:focus,
-      &__Button:focus-visible {
-        outline: 2px solid #0026ff;
-        outline-offset: 2px;
-      }
-
-      &__Button:active {
-        transform: translateY(0);
-        box-shadow: none;
-      }
-
-      .Button__Layer {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: $dark-gradient;
-        border-radius: 50%;
-      }
-
-      .Layer__One {
-        height: 50%;
-        width: 50%;
-        aspect-ratio: 1/1;
-        opacity: 20%;
-        z-index: 1;
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
-          inset 16px 16px 32px rgba(255, 255, 255, 0.8);
-      }
     }
-  }
+
+    &__FormEle {
+        width: 70%;
+        .FormContainer {
+            display: flex;
+            justify-content: flex-end;
+            padding-inline: 1rem;
+            .FormInner__Wrapper {
+                min-width: 320px;
+                width: max-content;
+                display: flex;
+                flex-direction: column;
+                gap: 4rem;
+            }
+
+            &__Options {
+                display: flex;
+                gap: 4rem;
+                overflow: hidden;
+
+                .OptionEle {
+                    height: 8rem;
+                    width: 8rem;
+                    max-width: 100%;
+                    aspect-ratio: 1/1;
+                    border-radius: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: $work-sans;
+                    font-weight: 700;
+                    font-size: $fs-larger;
+                    color: white;
+                    text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
+                    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+                }
+
+                .Option_Container--Unselected,
+                .Option_Container--Selected {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.6rem;
+                }
+
+                .Option_Container--Selected {
+                    .SelectionBar {
+                        height: 0.4rem;
+                        width: 5rem;
+                        background: $dark-gradient;
+                        border-radius: 10rem;
+                    }
+
+                    .OptionEle {
+                        background: $dark-gradient;
+                    }
+                }
+
+                .Option_Container--Unselected {
+                    .OptionEle {
+                        background: $base-accent-light;
+                    }
+                }
+            }
+
+            &__IdForm {
+                .IdForm__Ele input {
+                    width: 100%;
+                    padding: 18px 24px;
+                    border: 2px solid $base-accent-light;
+                    border-radius: 1rem;
+                    outline: none;
+                }
+
+                .IdForm__Ele span,
+                .IdForm__Ele input {
+                    font-family: $open-sans;
+                    font-size: $fs-small;
+                    color: $base-text-color;
+                }
+
+                .IdForm__Ele span {
+                    font-family: $work-sans;
+                    font-weight: 700;
+                    min-height: 64px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .IdForm__Ele input:focus,
+                .IdForm__Ele input:focus-visible {
+                    border: 2px solid #0026ff;
+                }
+
+                .IdForm__Ele {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+            }
+
+            &__Button {
+                padding: 1rem 2rem;
+                align-self: flex-start;
+                font-family: $work-sans;
+                font-size: $fs-small;
+                border: 2px solid $base-accent-light;
+                border-radius: 1.25rem;
+                color: $base-text-color;
+                background: none;
+                cursor: pointer;
+                transition: all 200ms ease-out;
+            }
+
+            &__Button:hover,
+            &__Button:focus {
+                background: $dark-gradient;
+                color: white;
+                transform: translateY(-4px);
+                box-shadow: 4px 4px 16px 8px rgba(40, 40, 200, 0.1);
+            }
+
+            &__Button:focus,
+            &__Button:focus-visible {
+                outline: 2px solid #0026ff;
+                outline-offset: 2px;
+            }
+
+            &__Button:active {
+                transform: translateY(0);
+                box-shadow: none;
+            }
+
+            .Button__Layer {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: $dark-gradient;
+                border-radius: 50%;
+            }
+
+            .Layer__One {
+                height: 50%;
+                width: 50%;
+                aspect-ratio: 1/1;
+                opacity: 20%;
+                z-index: 1;
+                box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+                    inset 16px 16px 32px rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
 }

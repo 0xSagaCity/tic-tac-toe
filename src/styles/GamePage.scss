@@ -1,122 +1,122 @@
 @import "./imports/variables";
 
 .GamePage {
-  min-height: 100vh;
-  padding-block-start: 0;
-  display: grid;
-  place-items: center;
-
-  .Game__Wrapper {
-    width: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    gap: 3rem;
-    padding: 2rem;
-  }
-
-  .InfoWrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .InfoContainer {
-    width: 90%;
-    height: 100%;
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1.6rem;
-    font-size: $fs-base;
-    border: 2px solid $base-accent-light;
-
-    & > .GradientText {
-      font-weight: 400;
-    }
-
-    .InfoText {
-      font-family: $work-sans;
-      color: $light-text-color;
-    }
-  }
-
-  .GameBoard {
-    aspect-ratio: 1/1;
-    background: $white-gradient;
-    border-radius: 5rem;
-    box-shadow: 10px 10px 20px #ccccff,
-      inset -16px -16px 32px rgba(0, 0, 200, 0.14),
-      inset 16px 16px 16px rgba(255, 255, 255, 1);
+    min-height: 100vh;
+    padding-block-start: 0;
     display: grid;
-    grid-template-columns: repeat(3, max(8rem, 8vw));
-    grid-template-rows: repeat(3, max(8rem, 8vw));
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
-    justify-content: center;
-    align-content: center;
-    padding: 2.4rem;
+    place-items: center;
 
-    .GameCell {
-      text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-      background: white;
-      border: 2px solid $base-accent-light;
-      font-family: $work-sans;
-      font-size: $fs-larger;
-      font-weight: 900;
-      color: $base-text-color;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 3px solid $base-background-color-shade;
-      border-radius: 3rem;
-      cursor: pointer;
-    }
-  }
-
-  /* Game Results */
-  .GameResult {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    padding: 2rem;
-    font-family: $work-sans;
-    font-size: $fs-large;
-    font-weight: 700;
-    color: $base-text-color;
-    background-color: $base-background-color;
-    overflow: none;
-    word-spacing: 10px;
-
-    .ResultButton__Container {
-      display: flex;
-      gap: 4rem;
+    .Game__Wrapper {
+        width: max-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 3rem;
+        padding: 2rem;
     }
 
-    .ResetButton {
-      border: none;
-      background: none;
-      padding: 1.4rem 3rem;
-      font-family: $work-sans;
-      font-size: $fs-base;
-      color: $base-text-color;
-      border-radius: 100rem;
-      cursor: pointer;
-      background: $button-gradient;
-      box-shadow: 10px 10px 20px #ccccff,
-        inset -8px -8px 16px rgba(0, 0, 200, 0.14),
-        inset 8px 8px 16px rgba(255, 255, 255, 1);
+    .InfoWrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-  }
+
+    .InfoContainer {
+        width: 90%;
+        height: 100%;
+        padding: 2rem 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1.6rem;
+        font-size: $fs-base;
+        border: 2px solid $base-accent-light;
+
+        & > .GradientText {
+            font-weight: 400;
+        }
+
+        .InfoText {
+            font-family: $work-sans;
+            color: $light-text-color;
+        }
+    }
+
+    .GameBoard {
+        aspect-ratio: 1/1;
+        background: $white-gradient;
+        border-radius: 5rem;
+        box-shadow: 10px 10px 20px #ccccff,
+            inset -16px -16px 32px rgba(0, 0, 200, 0.14),
+            inset 16px 16px 16px rgba(255, 255, 255, 1);
+        display: grid;
+        grid-template-columns: repeat(3, max(8rem, 8vw));
+        grid-template-rows: repeat(3, max(8rem, 8vw));
+        grid-column-gap: 2rem;
+        grid-row-gap: 2rem;
+        justify-content: center;
+        align-content: center;
+        padding: 2.4rem;
+
+        .GameCell {
+            text-shadow: -2px -2px 8px rgba(255, 255, 255, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            border: 2px solid $base-accent-light;
+            font-family: $work-sans;
+            font-size: $fs-larger;
+            font-weight: 900;
+            color: $base-text-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid $base-background-color-shade;
+            border-radius: 3rem;
+            cursor: pointer;
+        }
+    }
+
+    /* Game Results */
+    .GameResult {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding: 2rem;
+        font-family: $work-sans;
+        font-size: $fs-large;
+        font-weight: 700;
+        color: $base-text-color;
+        background-color: $base-background-color;
+        overflow: none;
+        word-spacing: 10px;
+
+        .ResultButton__Container {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .ResetButton {
+            border: none;
+            background: none;
+            padding: 1.4rem 3rem;
+            font-family: $work-sans;
+            font-size: $fs-base;
+            color: $base-text-color;
+            border-radius: 100rem;
+            cursor: pointer;
+            background: $button-gradient;
+            box-shadow: 10px 10px 20px #ccccff,
+                inset -8px -8px 16px rgba(0, 0, 200, 0.14),
+                inset 8px 8px 16px rgba(255, 255, 255, 1);
+        }
+    }
 }

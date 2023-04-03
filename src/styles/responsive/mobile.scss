@@ -1,360 +1,360 @@
 @media (max-width: 730px) {
-  /* Home Page */
-  .HomePage {
-    padding-block-start: 2rem;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .HomePageTop {
-    padding-block-end: 4rem;
-    gap: 1rem;
-
-    .TextContainer {
-      .Circle,
-      .Square {
-        display: none;
-      }
-
-      .HomePageTop__Title {
-        margin-inline: auto;
-        align-self: flex-start;
-        font-size: $fs-large;
-      }
-
-      .HomePageTop__Para {
-        margin-inline: auto;
-        max-width: 24rem;
-        align-self: flex-start;
-      }
+    /* Home Page */
+    .HomePage {
+        padding-block-start: 2rem;
+        justify-content: center;
+        gap: 2rem;
     }
 
-    .ButtonContainer {
-      height: max-content;
-      justify-content: center;
-      .PlayButton {
-        min-width: 100px;
-        aspect-ratio: auto;
-        min-height: 0 !important;
-        padding: 1.6rem 3rem;
-        box-shadow: 10px 10px 20px #ccccff,
-          inset -8px -8px 16px rgba(0, 0, 200, 0.14),
-          inset 8px 8px 16px rgba(255, 255, 255, 1);
-      }
-    }
-  }
+    .HomePageTop {
+        padding-block-end: 4rem;
+        gap: 1rem;
 
-  /* Form Page */
-  .FormPage {
-    align-items: flex-start;
-    padding-block-start: 2rem;
-  }
+        .TextContainer {
+            .Circle,
+            .Square {
+                display: none;
+            }
 
-  .FormPageTop {
-    justify-content: center;
-  }
+            .HomePageTop__Title {
+                margin-inline: auto;
+                align-self: flex-start;
+                font-size: $fs-large;
+            }
 
-  .FormDialog {
-    flex-direction: column;
-    padding-inline: 2rem;
-    padding-block-start: 2rem;
-    background: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    gap: 1rem;
-
-    &__FormEle {
-      width: 100%;
-
-      .FormContainer {
-        width: 100%;
-        display: block;
-        padding-inline: 0;
-
-        .FormInner__Wrapper {
-          width: 100%;
-          gap: 2rem;
-          padding-block: 24px 36px;
-          padding-inline: 36px;
-          border-radius: 3rem;
-          background: $white-gradient;
-          box-shadow: 16px 16px 32px rgba(200, 200, 255, 0.6),
-            inset -12px -12px 24px rgba(219, 225, 255, 0.8),
-            inset 16px 16px 32px #ffffff;
-        }
-      }
-    }
-
-    .FormContainer__Options {
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    &__Steps {
-      width: calc(100% - 1rem);
-      flex-direction: row;
-
-      .Step {
-        min-width: 0 !important;
-        padding-inline-end: 1rem !important;
-        padding-block: 8px;
-
-        &__Number {
-          padding: 0;
-          width: 32px;
-          height: 32px;
+            .HomePageTop__Para {
+                margin-inline: auto;
+                max-width: 24rem;
+                align-self: flex-start;
+            }
         }
 
-        &--Active {
-          .Step__Number {
-            background: $base-background-color;
-          }
+        .ButtonContainer {
+            height: max-content;
+            justify-content: center;
+            .PlayButton {
+                min-width: 100px;
+                aspect-ratio: auto;
+                min-height: 0 !important;
+                padding: 1.6rem 3rem;
+                box-shadow: 10px 10px 20px #ccccff,
+                    inset -8px -8px 16px rgba(0, 0, 200, 0.14),
+                    inset 8px 8px 16px rgba(255, 255, 255, 1);
+            }
+        }
+    }
+
+    /* Form Page */
+    .FormPage {
+        align-items: flex-start;
+        padding-block-start: 2rem;
+    }
+
+    .FormPageTop {
+        justify-content: center;
+    }
+
+    .FormDialog {
+        flex-direction: column;
+        padding-inline: 2rem;
+        padding-block-start: 2rem;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        gap: 1rem;
+
+        &__FormEle {
+            width: 100%;
+
+            .FormContainer {
+                width: 100%;
+                display: block;
+                padding-inline: 0;
+
+                .FormInner__Wrapper {
+                    width: 100%;
+                    gap: 2rem;
+                    padding-block: 24px 36px;
+                    padding-inline: 36px;
+                    border-radius: 3rem;
+                    background: $white-gradient;
+                    box-shadow: 16px 16px 32px rgba(200, 200, 255, 0.6),
+                        inset -12px -12px 24px rgba(219, 225, 255, 0.8),
+                        inset 16px 16px 32px #ffffff;
+                }
+            }
         }
 
-        &__Background {
-          width: 100%;
-          background: white !important;
-          border-radius: 2rem;
+        .FormContainer__Options {
+            justify-content: space-between;
+            gap: 1rem;
         }
-      }
+
+        &__Steps {
+            width: calc(100% - 1rem);
+            flex-direction: row;
+
+            .Step {
+                min-width: 0 !important;
+                padding-inline-end: 1rem !important;
+                padding-block: 8px;
+
+                &__Number {
+                    padding: 0;
+                    width: 32px;
+                    height: 32px;
+                }
+
+                &--Active {
+                    .Step__Number {
+                        background: $base-background-color;
+                    }
+                }
+
+                &__Background {
+                    width: 100%;
+                    background: white !important;
+                    border-radius: 2rem;
+                }
+            }
+        }
     }
-  }
 
-  .YourId {
-    padding: 1rem !important;
-    justify-content: space-between;
-    gap: 12px;
+    .YourId {
+        padding: 1rem !important;
+        justify-content: space-between;
+        gap: 12px;
 
-    &Inner__Wrapper {
-      width: 100%;
-      justify-content: space-between;
-    }
-  }
-
-  .YourId > span {
-    white-space: nowrap;
-  }
-
-  /* Game Page */
-  .GamePage {
-    .GameResult h2 {
-      font-size: $fs-large !important;
+        &Inner__Wrapper {
+            width: 100%;
+            justify-content: space-between;
+        }
     }
 
-    .ResetButton {
-      font-size: $fs-small !important;
+    .YourId > span {
+        white-space: nowrap;
     }
-  }
+
+    /* Game Page */
+    .GamePage {
+        .GameResult h2 {
+            font-size: $fs-large !important;
+        }
+
+        .ResetButton {
+            font-size: $fs-small !important;
+        }
+    }
 }
 
 @media (max-width: 540px) {
-  /* Home Page */
-  .HomePageTop {
-    .TextContainer {
-      .HomePageTop__Para {
-        font-size: 12px;
-      }
+    /* Home Page */
+    .HomePageTop {
+        .TextContainer {
+            .HomePageTop__Para {
+                font-size: 12px;
+            }
+        }
+
+        .ButtonContainer {
+            padding-inline: 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
     }
 
-    .ButtonContainer {
-      padding-inline: 2rem;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-  }
-
-  /* Form Page */
-  .FormDialog__FormEle .FormContainer__IdForm .IdForm__Ele input {
-    min-width: 0;
-  }
-
-  .FormDialog__Steps {
-    justify-content: space-between;
-    .Step {
-      .Step__Number {
-        margin-inline: 0;
-      }
-      width: max-content;
-    }
-  }
-
-  .FormDialog__FormEle .FormContainer .FormInner__Wrapper {
-    justify-content: center;
-  }
-
-  .YourId {
-    flex-direction: column;
-    &Inner__Wrapper {
-      flex-direction: column;
-    }
-  }
-
-  /* Game Page */
-  .GamePage {
-    padding: 0;
-    .GameResult h2 {
-      text-align: center;
+    /* Form Page */
+    .FormDialog__FormEle .FormContainer__IdForm .IdForm__Ele input {
+        min-width: 0;
     }
 
-    .ResultButton__Container {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem !important;
+    .FormDialog__Steps {
+        justify-content: space-between;
+        .Step {
+            .Step__Number {
+                margin-inline: 0;
+            }
+            width: max-content;
+        }
     }
 
-    .InfoWrapper {
-      gap: 0;
-
-      .InfoContainer {
-        border-radius: 1rem;
-        font-size: $fs-small;
-        padding-inline: 12px;
-      }
+    .FormDialog__FormEle .FormContainer .FormInner__Wrapper {
+        justify-content: center;
     }
 
-    .GameBoard {
-      padding: 1.4rem;
-      grid-column-gap: 12px;
-      grid-row-gap: 12px;
-      border-radius: 3rem;
-      .GameCell {
-        border-radius: 2rem;
-        border: 2px solid $base-accent-light;
-      }
+    .YourId {
+        flex-direction: column;
+        &Inner__Wrapper {
+            flex-direction: column;
+        }
     }
-  }
+
+    /* Game Page */
+    .GamePage {
+        padding: 0;
+        .GameResult h2 {
+            text-align: center;
+        }
+
+        .ResultButton__Container {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem !important;
+        }
+
+        .InfoWrapper {
+            gap: 0;
+
+            .InfoContainer {
+                border-radius: 1rem;
+                font-size: $fs-small;
+                padding-inline: 12px;
+            }
+        }
+
+        .GameBoard {
+            padding: 1.4rem;
+            grid-column-gap: 12px;
+            grid-row-gap: 12px;
+            border-radius: 3rem;
+            .GameCell {
+                border-radius: 2rem;
+                border: 2px solid $base-accent-light;
+            }
+        }
+    }
 }
 
 @media (max-width: 420px) {
-  /* Home Page */
-  .HomePage {
-    gap: 2rem;
-  }
-
-  .HomePageTop {
-    padding-block-end: 0;
-  }
-
-  /* Form Page */
-  .FormPageTop {
-    padding-inline: 24px;
-
-    .FormDialog__FormEle .FormContainer__Options .OptionEle {
-      height: 6rem;
-      width: 6rem;
-      font-size: $fs-large;
+    /* Home Page */
+    .HomePage {
+        gap: 2rem;
     }
 
-    .FormInner__Wrapper {
-      border-radius: 2.4rem !important;
-      min-width: 280px !important;
-      min-height: 280px !important;
-      span {
-        min-height: 0 !important;
-      }
+    .HomePageTop {
+        padding-block-end: 0;
     }
 
-    .Step--Inactive {
-      padding-inline: 0;
-      gap: 0;
-      .Step__Number {
-        margin: 0;
-      }
-      .Step__Background {
-        display: none;
-      }
-    }
+    /* Form Page */
+    .FormPageTop {
+        padding-inline: 24px;
 
-    &__Title {
-      font-size: $fs-large;
-    }
-
-    .ReceiveChallengeContainer {
-      justify-content: center;
-      .Indicator__Component {
-        flex-grow: 0;
-        .Sphere__Layer {
-          &One {
-            width: 300px;
-          }
-
-          &Two {
-            width: 280px;
-          }
-
-          &Final {
-            width: 240px;
-            height: 240px;
-          }
+        .FormDialog__FormEle .FormContainer__Options .OptionEle {
+            height: 6rem;
+            width: 6rem;
+            font-size: $fs-large;
         }
-      }
-    }
-  }
 
-  /* Game Page */
-  .GamePage {
-    .GameBoard {
-      grid-template-columns: repeat(3, max(5rem, 8vw));
-      grid-template-rows: repeat(3, max(5rem, 8vw));
+        .FormInner__Wrapper {
+            border-radius: 2.4rem !important;
+            min-width: 280px !important;
+            min-height: 280px !important;
+            span {
+                min-height: 0 !important;
+            }
+        }
 
-      .GameCell {
-        font-size: 3rem;
-        border-radius: 1.4rem;
-      }
+        .Step--Inactive {
+            padding-inline: 0;
+            gap: 0;
+            .Step__Number {
+                margin: 0;
+            }
+            .Step__Background {
+                display: none;
+            }
+        }
+
+        &__Title {
+            font-size: $fs-large;
+        }
+
+        .ReceiveChallengeContainer {
+            justify-content: center;
+            .Indicator__Component {
+                flex-grow: 0;
+                .Sphere__Layer {
+                    &One {
+                        width: 300px;
+                    }
+
+                    &Two {
+                        width: 280px;
+                    }
+
+                    &Final {
+                        width: 240px;
+                        height: 240px;
+                    }
+                }
+            }
+        }
     }
-  }
+
+    /* Game Page */
+    .GamePage {
+        .GameBoard {
+            grid-template-columns: repeat(3, max(5rem, 8vw));
+            grid-template-rows: repeat(3, max(5rem, 8vw));
+
+            .GameCell {
+                font-size: 3rem;
+                border-radius: 1.4rem;
+            }
+        }
+    }
 }
 
 @media (max-width: 380px) {
-  /* Form Page */
-  .FormPage {
-    .FormPageTop {
-      .FormDialog {
-        .FormContainer {
-          padding-inline: 0;
+    /* Form Page */
+    .FormPage {
+        .FormPageTop {
+            .FormDialog {
+                .FormContainer {
+                    padding-inline: 0;
+                }
+                &__Steps {
+                    gap: 0;
+
+                    .Step__Text,
+                    .Step__Number {
+                        font-size: 14px;
+                    }
+                }
+                .FormInner__Wrapper {
+                    padding: 24px;
+                }
+            }
+
+            .FormDialog__FormEle .FormContainer__IdForm .IdForm__Ele input {
+                padding: 12px 24px;
+                min-width: 0;
+                width: 100%;
+            }
+
+            .YourId {
+                padding-inline: 4px;
+                padding-block: 1rem;
+
+                &Inner__Wrapper {
+                    .YourId__Text {
+                        font-size: 0.8rem;
+                        padding-inline: 4px;
+                    }
+                }
+            }
+
+            &__Title {
+                font-size: calc($fs-large - 1rem) !important;
+            }
         }
-        &__Steps {
-          gap: 0;
-
-          .Step__Text,
-          .Step__Number {
-            font-size: 14px;
-          }
-        }
-        .FormInner__Wrapper {
-          padding: 24px;
-        }
-      }
-
-      .FormDialog__FormEle .FormContainer__IdForm .IdForm__Ele input {
-        padding: 12px 24px;
-        min-width: 0;
-        width: 100%;
-      }
-
-      .YourId {
-        padding-inline: 4px;
-        padding-block: 1rem;
-
-        &Inner__Wrapper {
-          .YourId__Text {
-            font-size: 0.8rem;
-            padding-inline: 4px;
-          }
-        }
-      }
-
-      &__Title {
-        font-size: calc($fs-large - 1rem) !important;
-      }
     }
-  }
-  /* Game Page */
-  .GamePage {
-    .GameBoard {
-      grid-template-columns: repeat(3, max(4rem, 8vw));
-      grid-template-rows: repeat(3, max(4rem, 8vw));
+    /* Game Page */
+    .GamePage {
+        .GameBoard {
+            grid-template-columns: repeat(3, max(4rem, 8vw));
+            grid-template-rows: repeat(3, max(4rem, 8vw));
+        }
     }
-  }
 }

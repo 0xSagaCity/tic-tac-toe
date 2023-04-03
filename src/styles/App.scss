@@ -11,57 +11,57 @@
 *,
 *::after,
 *::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .App {
-  min-height: 100vh;
-  visibility: hidden;
-  overflow: hidden;
+    min-height: 100vh;
+    visibility: hidden;
+    overflow: hidden;
 }
 
 body {
-  background-color: $base-background-color;
+    background-color: $base-background-color;
 }
 
 .EntryTransition__Overlay,
 .ExitTransition__Overlay {
-  display: none;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150%;
-  height: 120%;
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 120%;
 }
 
 .EntryTransition__Overlay {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .Overlay__One {
-  top: 120%;
-  background: #0013ff;
+    top: 120%;
+    background: #0013ff;
 }
 
 .Overlay__Two {
-  top: 120%;
-  background: $base-text-color;
+    top: 120%;
+    background: $base-text-color;
 }
 
 .Overlay__Three {
-  top: 120%;
-  background: #8349ff;
+    top: 120%;
+    background: #8349ff;
 }
 
 .Overlay__Four {
-  top: 120%;
-  background: $base-background-color;
+    top: 120%;
+    background: $base-background-color;
 }
 
 .Overlay__Five {
-  top: 100%;
-  background: $base-background-color;
+    top: 100%;
+    background: $base-background-color;
 }
