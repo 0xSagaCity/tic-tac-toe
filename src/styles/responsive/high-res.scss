@@ -104,8 +104,13 @@
     /* Game Page */
     .GamePage {
         .InfoContainer {
-            padding-block-start: 0;
             padding-inline: 4rem;
+            border-radius: 3rem;
+        }
+
+        .InfoContainer > span {
+            font-size: $fs-large;
+            font-weight: 900;
         }
 
         .GameResult {

@@ -64,16 +64,10 @@ export default function HomePage() {
                         </h1>
                         <p className="HomePageTop__Para StaggerEnter">
                             Welcome to my online multiplayer Tic Tac Toe game!
-                            In this web app, you can play the classic game of
-                            Tic Tac Toe with a friend by sharing a unique game
-                            id. To start, simply start receiving for challenge
-                            by clicking on the "Receive" button. Once you have
-                            created the id, you can share the id with your
-                            friend and start playing Tic Tac Toe in real-time.
-                            The game is designed to be user-friendly, with
-                            simple controls and an intuitive interface. So, grab
-                            a friend and get ready to play Tic Tac Toe like
-                            never before!
+                            In this web app, you can send the challenge if your
+                            have the id of your friend by pressing "Send" or
+                            share your id and wait till your friend starts the
+                            challenge by pressing "Receive".
                         </p>
                         <Circle />
                         <Square />
